@@ -16,6 +16,12 @@ Published website commit: `d511c89849dda6e118018cd24a47dde8d1e049b0`
 
 The Academy and practice-plan interfaces are removed. The small `academy.html` and `practice.html` files redirect old links to the Journey and resource library. They are not Academy or assignment pages. There is no enrollment, assignment or completion tracking.
 
+## GitHub Pages
+
+The repository now includes a root `index.html` that redirects GitHub Pages visitors to `dist/index.html`, so GitHub Pages shows the site instead of rendering `README.md` as the homepage.
+
+It also includes `.github/workflows/deploy-pages.yml`, which publishes `dist/` directly with GitHub Actions when Pages is configured to use **GitHub Actions** as its source.
+
 ## View or edit locally
 
 The editable website is in `dist/`. HTML, CSS, JavaScript, fonts, images and downloadable CSV catalogs are included. No build step is required.
