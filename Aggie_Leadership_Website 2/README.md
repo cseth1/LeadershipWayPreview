@@ -18,9 +18,9 @@ The Academy and practice-plan interfaces are removed. The small `academy.html` a
 
 ## GitHub Pages
 
-The repository now includes a root `index.html` that redirects GitHub Pages visitors to `dist/index.html`, so GitHub Pages shows the site instead of rendering `README.md` as the homepage.
+The repository root now includes `index.html`, which redirects GitHub Pages visitors to `Aggie_Leadership_Website 2/dist/index.html` so the site loads instead of a generated README landing page.
 
-It also includes `.github/workflows/deploy-pages.yml`, which publishes `dist/` directly with GitHub Actions when Pages is configured to use **GitHub Actions** as its source.
+The repository-root workflow at `.github/workflows/deploy-pages.yml` publishes `Aggie_Leadership_Website 2/dist/` directly when GitHub Pages is configured to use **GitHub Actions** as its source.
 
 ## View or edit locally
 
