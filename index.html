@@ -7,10 +7,9 @@
   <meta id="page-redirect" http-equiv="refresh" content="0; url=./Aggie_Leadership_Website%202/dist/index.html">
   <script>
     const basePath = (() => {
-      const { pathname } = window.location;
-      if (pathname.endsWith('/')) return pathname;
-      if (pathname.endsWith('/index.html')) return pathname.slice(0, -'index.html'.length);
-      return `${pathname.slice(0, pathname.lastIndexOf('/') + 1)}`;
+      if (!window.location.hostname.endsWith('.github.io')) return '/';
+      const segments = window.location.pathname.split('/').filter(Boolean);
+      return segments.length ? `/${segments[0]}/` : '/';
     })();
     const target = new URL(`${basePath}Aggie_Leadership_Website%202/dist/index.html`, window.location.origin);
     target.search = window.location.search;
