@@ -4,6 +4,10 @@ Employee-first website with four main pages: The Aggie Way home page (index.html
 
 Open dist/index.html locally or serve dist with a static web server. Fonts and core imagery are local; provider links require internet access.
 
+## GitHub Pages deployment
+
+GitHub Pages is configured to publish the built site from dist/ through GitHub Actions. In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions** so the workflow in `.github/workflows/deploy-pages.yml` can publish `dist/index.html` as the site entrypoint.
+
 The public opportunity catalog lives in dist/data.js. The 52 published resource records live in dist/toolkit-data.js. Two additional historical document links remain in the research workbook for access confirmation. Both public catalogs are available as CSV files. Historical TrainTraq metadata stays in the research workbook. No enrollment or completion tracking is implemented.
 
 Visual references: jobs.tamu.edu, www.tamu.edu and its facts page, and A&M's published Aggie UX / font / web-color guidance. The mockup matches published defaults but is not the university's production Aggie UX installation. Use current approved components with the campus web team for official implementation.
