@@ -16,6 +16,10 @@ Published website commit: `d511c89849dda6e118018cd24a47dde8d1e049b0`
 
 The Academy and practice-plan interfaces are removed. The small `academy.html` and `practice.html` files redirect old links to the Journey and resource library. They are not Academy or assignment pages. There is no enrollment, assignment or completion tracking.
 
+## GitHub Pages
+
+The repository-root workflow at `.github/workflows/deploy-pages.yml` publishes `Aggie_Leadership_Website 2/dist/` directly when GitHub Pages is configured to use **GitHub Actions** as its source, so `dist/index.html` becomes the published homepage instead of a generated README landing page.
+
 ## View or edit locally
 
 The editable website is in `dist/`. HTML, CSS, JavaScript, fonts, images and downloadable CSV catalogs are included. No build step is required.
