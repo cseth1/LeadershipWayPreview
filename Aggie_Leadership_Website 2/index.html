@@ -4,18 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Leadership Hub redirect</title>
-  <meta http-equiv="refresh" content="0; url=./dist/index.html">
+  <meta id="page-redirect" http-equiv="refresh" content="0; url=./dist/index.html">
   <script>
-    const target = new URL('./dist/index.html', window.location.href);
+    const basePath = (() => {
+      const { pathname } = window.location;
+      if (pathname.endsWith('/')) return pathname;
+      if (pathname.endsWith('/index.html')) return pathname.slice(0, -'index.html'.length);
+      return `${pathname.slice(0, pathname.lastIndexOf('/') + 1)}`;
+    })();
+    const target = new URL(`${basePath}dist/index.html`, window.location.origin);
     target.search = window.location.search;
     target.hash = window.location.hash;
+    document.getElementById('page-redirect').content = `0; url=${target.toString()}`;
     window.location.replace(target.toString());
   </script>
 </head>
 <body>
   <p>Redirecting to <a id="site-link" href="./dist/index.html">the Leadership Hub</a>.</p>
   <script>
-    document.getElementById('site-link').href = new URL(`./dist/index.html${window.location.search}${window.location.hash}`, window.location.href).toString();
+    document.getElementById('site-link').href = target.toString();
   </script>
 </body>
 </html>
