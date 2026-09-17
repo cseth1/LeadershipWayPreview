@@ -20,7 +20,7 @@ The Academy and practice-plan interfaces are removed. The small `academy.html` a
 
 The repository root now includes `index.html`, which redirects GitHub Pages visitors to `Aggie_Leadership_Website 2/dist/index.html` so the site loads instead of a generated README landing page.
 
-The repository-root workflow at `.github/workflows/deploy-pages.yml` publishes the repository root when GitHub Pages is configured to use **GitHub Actions** as its source, so the root redirect and the `Aggie_Leadership_Website 2/dist/` site files are deployed together.
+The repository-root workflow at `.github/workflows/deploy-pages.yml` prepares a minimal Pages artifact containing the root redirect and `Aggie_Leadership_Website 2/dist/`, then publishes that bundle when GitHub Pages is configured to use **GitHub Actions** as its source.
 
 ## View or edit locally
 
