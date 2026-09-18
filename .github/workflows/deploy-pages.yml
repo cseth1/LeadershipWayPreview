@@ -28,10 +28,13 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
+      - name: Build both website versions
+        run: python3 scripts/build-pages.py
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./Aggie_Leadership_Website 2/dist
+          path: ./_site
 
       - name: Deploy to GitHub Pages
         id: deployment

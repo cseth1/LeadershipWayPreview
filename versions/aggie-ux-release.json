@@ -1,0 +1,14 @@
+{
+  "edition": "Maroon and white clarity revision",
+  "prepared": "2026-09-18T04:13:00.079770+00:00",
+  "source_commit": "9e8be342600c4243a9dacb24e98ee83c0c10c5b7",
+  "project_id": "appgprj_6aaaff462d30819195ed3bd55370cd84",
+  "publication_status": "succeeded",
+  "published_version": 11,
+  "current_published_version": 11,
+  "website": "https://aggie-leadership-hub-concept.vert-mid.chatgpt.site",
+  "cascade_import_status": "Prepared for standard Aggie UX page builder; not imported or tested in a target Cascade instance.",
+  "version_id": "appgprj_6aaaff462d30819195ed3bd55370cd84~appgver_b0fb528b4ea08191b5f457c3786b9915",
+  "deployment_id": "appgdep_6aacba0fe8688191ab1a9d44f819712b",
+  "published_at": "2026-09-18T04:12:07.665802+00:00"
+}
