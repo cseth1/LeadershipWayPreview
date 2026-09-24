@@ -25,3 +25,9 @@ python3 -m http.server 8000 --directory _site
 Open http://localhost:8000/ for the original and http://localhost:8000/aggie-ux/ for Aggie UX. Building requires only Python's standard library.
 
 The existing GitHub Pages workflow builds and deploys `_site/` whenever `main` changes. To update the Aggie UX design, replace the website files inside `aggie-ux/` and update its release record; leave the Version 1 folder intact. The separate ChatGPT-hosted site is not changed by this repository.
+
+## Edit website content in Excel
+
+The [team workbook](content/Leadership_Website_Content.xlsx) contains the complete program/course and resource catalogs, featured selections, and existing page wording and links. Both website versions can read one shared OneDrive or SharePoint master workbook through the publishing workflow. See [team editing and connection instructions](content/README.md).
+
+Automatic syncing is opt-in through `CONTENT_SYNC_ENABLED`. Until the connection is enabled, the existing source-version deployment continues. Validate a workbook locally with `python3 scripts/build-pages.py --workbook content/Leadership_Website_Content.xlsx` after installing `scripts/requirements-content.txt`.

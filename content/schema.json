@@ -1,0 +1,11 @@
+{
+  "Programs and Courses": [
+    ["Record ID","id","text"],["Title","title","text"],["Publish","publish","yesno"],["Description","description","text"],["Provider","owner","text"],["URL","url","url"],["Type","type","text"],["Show on course page","coursePage","yesno"],["Course area","area","text"],["Duration","duration","text"],["Sort hours","sortHours","number"],["Cost","cost","text"],["Eligibility","eligibility","text"],["Audience group","scope","text"],["Audience filters","audienceTags","list"],["Audience label","audienceLabel","text"],["Faculty focused","facultyFocused","bool"],["Journey stages","journeyStages","list"],["Topics","topic","text"],["Delivery","delivery","text"],["Source status","status","text"],["Notes","notes","text"],["Contact","contact","text"],["Source reviewed","checked","date"],["Source basis","sourceBasis","text"],["Discovery note","discoveryNote","text"],["Source audience","audience","list"],["Source stages","stages","list"]
+  ],
+  "Resources": [
+    ["Record ID","id","text"],["Title","title","text"],["Publish","publish","yesno"],["Description","description","text"],["Provider","owner","text"],["URL","url","url"],["Type","type","text"],["Topic","topic","text"],["Origin","origin","text"],["Access","access","text"],["Audience group","scope","text"],["Audience filters","audienceTags","list"],["Audience label","audienceLabel","text"],["Faculty focused","facultyFocused","bool"],["Journey stages","journeyStages","list"],["Source URL","source","url"],["Source evidence","evidence","text"],["Notes","notes","text"],["Source reviewed","checked","date"],["Link status","linkStatus","text"],["Discovery note","discoveryNote","text"]
+  ],
+  "Featured Content": [["Feature ID","Feature ID","text"],["Version","Version","text"],["Page","Page","text"],["Section","Section","text"],["Record ID","Record ID","text"],["Order","Order","number"],["Title override","Title override","text"],["Description override","Description override","text"]],
+  "Page Text": [["Text ID","Text ID","text"],["Version","Version","text"],["Page","Page","text"],["Section","Section","text"],["Element","Element","text"],["Text","Text","text"]],
+  "Page Links": [["Link ID","Link ID","text"],["Version","Version","text"],["Page","Page","text"],["Section","Section","text"],["Link label (reference)","Link label (reference)","text"],["URL","URL","url"]]
+}
