@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   deploy:
-    if: github.event_name != 'schedule' || vars.CONTENT_SYNC_ENABLED == 'true'
+    if: vars.CONTENT_SYNC_ENABLED != 'false' && (github.event_name != 'schedule' || vars.CONTENT_SYNC_ENABLED == 'true')
     runs-on: ubuntu-latest
     environment:
       name: github-pages

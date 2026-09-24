@@ -24,7 +24,9 @@ For a workbook that requires organizational sign-in, the Microsoft 365 administr
 
 The app requires Microsoft Graph application permission and a resource-specific read grant. Microsoft documents selected permissions for sites, libraries and files; use the narrowest approved scope rather than granting tenant-wide access. The code never writes to Microsoft 365. If organizational policy requires certificate or federated identity authentication, adapt the token acquisition to that approved method before enabling the workflow.
 
-After the connection is configured, set the repository Actions variable `CONTENT_SYNC_ENABLED` to `true` and run **Deploy GitHub Pages** manually once. Confirm the deployment and both website versions. The hourly schedule then continues automatically. To pause updates, set the variable to `false`; avoid a new main-branch deployment while paused because the existing source-version build remains the fallback for that explicit deployment. Scheduled checks skip while disabled.
+After the connection is configured, set the repository Actions variable `CONTENT_SYNC_ENABLED` to `true` and run **Deploy GitHub Pages** manually once. Confirm the deployment and both website versions. The hourly schedule then continues automatically. To pause updates, set the variable to `false`; both scheduled and push deployments skip and the published website stays online. An unset variable retains the original source-version build for repositories that have not connected a workbook.
+
+GitHub can delay scheduled runs, and automatically disables scheduled workflows in public repositories after 60 days without repository activity. Re-enable the workflow in Actions if that happens. Changes saved only in OneDrive do not count as repository activity. The public `content-sync.json` file records the last successful workbook build, counts and workbook checksum without exposing its sharing link.
 
 ## Editing
 
