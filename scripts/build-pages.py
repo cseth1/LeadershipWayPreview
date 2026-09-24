@@ -6,6 +6,10 @@ from pathlib import Path
 import posixpath
 import re
 import shutil
+import argparse
+import hashlib
+import json
+from datetime import datetime, timezone
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -38,7 +42,11 @@ def switcher(current_version, page_name, current_directory):
     )
 
 
-def build():
+def build(workbook=None):
+    # Validate before replacing output. Bad shared edits never reach deployment.
+    if workbook:
+        from content_workbook import read_xlsx
+        content = read_xlsx(workbook)
     # Only this generated directory is replaced. The two source versions stay intact.
     if OUTPUT.exists():
         shutil.rmtree(OUTPUT)
@@ -67,7 +75,20 @@ def build():
             (OUTPUT / destination / source_file.name).write_text(html, encoding="utf-8")
             count += 1
     print(f"Built {count} pages with version navigation in {OUTPUT}")
+    if workbook:
+        from content_workbook import render_content
+        counts = render_content(OUTPUT, content)
+        print(f"Applied workbook content: {counts}")
+        (OUTPUT / 'content-sync.json').write_text(json.dumps({
+            'source': 'Excel workbook',
+            'workbookSha256': hashlib.sha256(workbook.read_bytes()).hexdigest(),
+            'builtAt': datetime.now(timezone.utc).isoformat(),
+            **counts,
+        }, indent=2) + '\n')
 
 
 if __name__ == "__main__":
-    build()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--workbook', type=Path, help='Shared master workbook or a local validation copy')
+    args = parser.parse_args()
+    build(args.workbook)

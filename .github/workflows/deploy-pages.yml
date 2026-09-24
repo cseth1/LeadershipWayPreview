@@ -5,6 +5,8 @@ on:
     branches:
       - main
   workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *'
 
 permissions:
   contents: read
@@ -17,6 +19,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: vars.CONTENT_SYNC_ENABLED != 'false' && (github.event_name != 'schedule' || vars.CONTENT_SYNC_ENABLED == 'true')
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -28,8 +31,34 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install content reader
+        run: pip install -r scripts/requirements-content.txt
+
+      - name: Download shared master workbook
+        if: vars.CONTENT_SYNC_ENABLED == 'true'
+        env:
+          LEADERSHIP_WORKBOOK_URL: ${{ secrets.LEADERSHIP_WORKBOOK_URL }}
+          MS_TENANT_ID: ${{ secrets.MS_TENANT_ID }}
+          MS_CLIENT_ID: ${{ secrets.MS_CLIENT_ID }}
+          MS_CLIENT_SECRET: ${{ secrets.MS_CLIENT_SECRET }}
+          MS_DRIVE_ID: ${{ secrets.MS_DRIVE_ID }}
+          MS_ITEM_ID: ${{ secrets.MS_ITEM_ID }}
+        run: python3 scripts/download_workbook.py "$RUNNER_TEMP/Leadership_Website_Content.xlsx"
+
       - name: Build both website versions
-        run: python3 scripts/build-pages.py
+        env:
+          CONTENT_SYNC_ENABLED: ${{ vars.CONTENT_SYNC_ENABLED }}
+        run: |
+          if [ "$CONTENT_SYNC_ENABLED" = "true" ]; then
+            python3 scripts/build-pages.py --workbook "$RUNNER_TEMP/Leadership_Website_Content.xlsx"
+          else
+            python3 scripts/build-pages.py
+          fi
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
