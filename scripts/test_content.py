@@ -36,7 +36,7 @@ class ContentTests(unittest.TestCase):
             builder.OUTPUT=Path(temp)/'site';builder.build()
             first=self.data['Programs and Courses'][0]
             first.update(title='Updated <course> & title',description='New description from workbook',duration='12 hours',url='https://example.edu/updated')
-            new=copy.deepcopy(first);new.update(id='E999',title='New workbook course',journeyStages=['Start at A&M'])
+            new=copy.deepcopy(first);new.update(id='E999',title='New workbook course',owner='New provider',area='New area',journeyStages=['Start at A&M'])
             self.data['Programs and Courses'].append(new)
             self.data['Programs and Courses'][1]['publish']='No'
             self.data['Resources'][0].update(title='Updated toolkit title',topic='Digital skills')
@@ -58,6 +58,9 @@ class ContentTests(unittest.TestCase):
             self.assertFalse(programs.xpath('//*[@id="e002"]'))
             courses=html.fromstring((builder.OUTPUT/'aggie-ux/professional-development.html').read_text())
             self.assertEqual(len(courses.xpath('//*[@id="course-e999"]')),1)
+            original_courses=html.fromstring((builder.OUTPUT/'professional-development.html').read_text())
+            self.assertIn('New provider',original_courses.xpath('//*[@id="course-provider"]/option/text()'))
+            self.assertIn('New area',original_courses.xpath('//*[@id="course-area"]/option/text()'))
             newtopic=html.fromstring((builder.OUTPUT/'aggie-ux/tools-digital-skills.html').read_text())
             oldtopic=html.fromstring((builder.OUTPUT/'aggie-ux/tools-new-supervisors.html').read_text())
             self.assertTrue(newtopic.xpath('//*[@id="t001"]'));self.assertFalse(oldtopic.xpath('//*[@id="t001"]'))

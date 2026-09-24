@@ -7,6 +7,9 @@ import posixpath
 import re
 import shutil
 import argparse
+import hashlib
+import json
+from datetime import datetime, timezone
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -74,7 +77,14 @@ def build(workbook=None):
     print(f"Built {count} pages with version navigation in {OUTPUT}")
     if workbook:
         from content_workbook import render_content
-        print(f"Applied workbook content: {render_content(OUTPUT, content)}")
+        counts = render_content(OUTPUT, content)
+        print(f"Applied workbook content: {counts}")
+        (OUTPUT / 'content-sync.json').write_text(json.dumps({
+            'source': 'Excel workbook',
+            'workbookSha256': hashlib.sha256(workbook.read_bytes()).hexdigest(),
+            'builtAt': datetime.now(timezone.utc).isoformat(),
+            **counts,
+        }, indent=2) + '\n')
 
 
 if __name__ == "__main__":

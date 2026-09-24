@@ -33,7 +33,8 @@ def acquire():
     shared=os.environ.get('LEADERSHIP_WORKBOOK_URL','').strip()
     if shared:
         parsed=urlparse(shared)
-        if parsed.scheme!='https' or not (parsed.hostname.endswith('.sharepoint.com') or parsed.hostname=='1drv.ms'):
+        host=parsed.hostname or ''
+        if parsed.scheme!='https' or not (host.endswith('.sharepoint.com') or host=='1drv.ms'):
             raise ValueError('LEADERSHIP_WORKBOOK_URL must be an HTTPS OneDrive or SharePoint workbook link')
         if '/:f:/' in parsed.path:raise ValueError('Use the workbook file link, not the shared folder link')
         query=dict(parse_qsl(parsed.query,keep_blank_values=True));query['download']='1'
