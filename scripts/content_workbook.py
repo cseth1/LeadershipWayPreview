@@ -161,7 +161,8 @@ def feature_card(r,f,style):
     title=esc(f['Title override'] or r['title']);desc=esc(f['Description override'] or r['description']);url=esc(r['url']);id=esc(r['id'])
     if style.startswith('ux-'):
         resource=style.endswith('resource');href=(topic_file(r['topic']) if resource else 'programs.html' if r['scope']=='Employees' else 'other-opportunities.html')+'#'+r['id'].lower();label='View resource' if resource else 'View details'
-        return f'<div class="card"><div class="card__content"><div class="heading-group"><span class="superhead">{esc(r["type"])}</span><h3>{title}</h3></div><p>{desc}</p><a aria-label="{label}: {title}" class="link--cta-leading" href="{esc(href)}">{label}</a></div></div>'
+        icon='<div class="icon-wrapper"><svg aria-hidden="true" focusable="false"><use href="#aux_book-open"></use></svg></div>' if resource else ''
+        return f'<div class="card">{icon}<div class="card__content"><div class="heading-group"><span class="superhead">{esc(r["type"])}</span><h3>{title}</h3></div><p>{desc}</p><a aria-label="{label}: {title}" class="link--cta-leading" href="{esc(href)}">{label}</a></div></div>'
     if style=='original-program':
         return f'<article class="learning-card"><span class="resource-type">{esc(r["type"])}</span><p class="provider">{esc(r["owner"])}</p><h3>{title}</h3><p>{desc}</p><p class="small"><strong>Who it serves:</strong> {esc(r["eligibility"])}</p><button class="detail-button" data-opportunity="{id}">View offering details<span class="sr-only">: {title}</span></button><p class="source-date">Source reviewed {esc(r["checked"])} · <a href="{url}" target="_blank" rel="noopener">Provider website</a></p></article>'
     source=f'<p class="source-date"><a href="{esc(r["source"])}" target="_blank" rel="noopener">Source collection</a></p>' if r['source']!=r['url'] else ''
