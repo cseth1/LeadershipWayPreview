@@ -662,13 +662,13 @@ footer b{font:700 18px var(--f-display);text-transform:uppercase;color:#fff;lett
         <aside class="pass" aria-live="polite">
           <div class="pass-top"><b>Boarding pass</b><span>ADMIT ONE CREW</span></div>
           <div class="pass-body">
-            <span class="ready-pill" id="readyPill">Not ready yet · choose 4 teams</span>
+            <span class="ready-pill" id="readyPill">Not ready yet · add 4 people</span>
             <div>
               <span class="tag" style="color:var(--muted)">CREW NAME</span>
               <p class="pass-name" id="crewName">Tap where you work</p>
             </div>
             <div class="seats" id="seats"></div>
-            <div class="mix-meter"><span id="mixLabel">CREW MIX · 0 TEAMS</span><div class="mix-bar"><i id="mixFill"></i></div></div>
+            <div class="mix-meter"><span id="mixLabel">CREW MIX · 0 PEOPLE · 0 AREAS</span><div class="mix-bar"><i id="mixFill"></i></div></div>
             <div class="pass-meta">
               <span>DEPARTS<b>JAN 12</b></span>
               <span>CREW<b>4–8</b></span>
@@ -1018,9 +1018,7 @@ footer b{font:700 18px var(--f-display);text-transform:uppercase;color:#fff;lett
     b.type = 'button'; b.className = 'role'; b.dataset.k = k; b.setAttribute('aria-pressed', 'false');
     b.innerHTML = `<em>HROE TEAM</em><b>${name}</b><small>${desc}</small>`;
     b.addEventListener('click', () => {
-      const at = picked.indexOf(k);
-      if (at > -1) picked.splice(at, 1);
-      else if (picked.length < 8) picked.push(k);
+      if (picked.length < 8) picked.push(k);
       renderCrew();
     });
     rolesEl.appendChild(b);
@@ -1031,12 +1029,14 @@ footer b{font:700 18px var(--f-display);text-transform:uppercase;color:#fff;lett
     try { localStorage.setItem('rtb-crew', JSON.stringify({ picked, ai, ni })); } catch (e) {}
   }
   function renderCrew() {
-    const n = picked.length;
+    const n = picked.length, areaCount = new Set(picked).size;
     [...rolesEl.children].forEach(b => {
       const i = picked.indexOf(b.dataset.k);
       b.setAttribute('aria-pressed', String(i > -1));
-      b.disabled = n >= 8 && i < 0;
-      b.querySelector('em').textContent = i === 0 ? "THAT'S YOU" : i > 0 ? 'ON THE CREW' : 'HROE TEAM';
+      const count = picked.filter(k => k === b.dataset.k).length;
+      b.disabled = n >= 8;
+      b.querySelector('em').textContent = count ? `${count} ${count === 1 ? 'PERSON' : 'PEOPLE'} ON CREW` : 'HROE TEAM';
+      b.setAttribute('aria-label', `Add a person from ${area(b.dataset.k)[1]}. ${count} selected.`);
     });
     seatsEl.innerHTML = '';
     for (let i = 0; i < 8; i++) {
@@ -1044,20 +1044,32 @@ footer b{font:700 18px var(--f-display);text-transform:uppercase;color:#fff;lett
       const k = picked[i];
       s.className = 'seat' + (k ? ' full' : '') + (!k && i >= 4 ? ' opt' : '');
       s.textContent = k ? (i === 0 ? 'You · ' : '') + area(k)[3] : (i < 4 ? `Seat ${i + 1}` : 'Optional');
+      if (k) {
+        s.setAttribute('role', 'button');
+        s.tabIndex = 0;
+        s.setAttribute('aria-label', `Remove person ${i + 1} from ${area(k)[1]}`);
+        s.title = 'Click to remove this person';
+        const remove = () => { picked.splice(i, 1); renderCrew(); };
+        s.addEventListener('click', remove);
+        s.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); remove(); }
+        });
+      }
       seatsEl.appendChild(s);
     }
-    const ready = n >= 4;
-    document.getElementById('mixLabel').textContent = `CREW MIX · ${n} ${n === 1 ? 'TEAM' : 'TEAMS'}`;
+    const ready = n >= 4 && areaCount >= 2;
+    document.getElementById('mixLabel').textContent = `CREW MIX · ${n} ${n === 1 ? 'PERSON' : 'PEOPLE'} · ${areaCount} ${areaCount === 1 ? 'AREA' : 'AREAS'}`;
     document.getElementById('mixFill').style.width = (n / 8 * 100) + '%';
     document.getElementById('crewName').textContent = crewName();
     const readyPill = document.getElementById('readyPill');
     readyPill.classList.toggle('go', ready);
-    readyPill.textContent = ready ? `Race-ready · ${n} teams on board` : `Not ready yet · choose ${4 - n} more ${4 - n === 1 ? 'team' : 'teams'}`;
+    readyPill.textContent = ready ? `Race-ready · ${n} people on board` : n < 4 ? `Not ready yet · add ${4 - n} more ${4 - n === 1 ? 'person' : 'people'}` : 'Not ready yet · include at least 2 areas';
     let tip;
-    if (!n) tip = 'Start with your own team. Then go find people who see the work differently.';
-    else if (n < 4) tip = `Add ${4 - n} more ${4 - n === 1 ? 'team' : 'teams'} to reach the starting line. Who would see this from a totally different angle?`;
-    else if (n < 8) tip = `Race-ready. ${n} teams means ${n} different ways of seeing the problem. Room for ${8 - n} more if you want them.`;
-    else tip = 'A full crew with every corner of HROE on board. That is the dream mix.';
+    if (!n) tip = 'Tap an area once per person. Build a crew of 4–8 people from at least 2 work areas.';
+    else if (areaCount < 2) tip = 'Bring in someone from another work area. Repeat taps add people from the same area; tap a filled seat to remove someone.';
+    else if (n < 4) tip = `Add ${4 - n} more ${4 - n === 1 ? 'person' : 'people'}. Tap any area again to add another person, or a filled seat to remove someone.`;
+    else if (n < 8) tip = `Race-ready with ${areaCount} work areas represented. Room for ${8 - n} more people. Tap an area to add; tap a filled seat to remove.`;
+    else tip = `Your crew is full: 8 people across ${areaCount} work areas. Tap a filled seat to remove someone.`;
     document.getElementById('crewTip').textContent = tip;
     document.getElementById('copyMsg').textContent = '';
     saveCrew();
