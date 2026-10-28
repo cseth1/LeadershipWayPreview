@@ -351,6 +351,71 @@ a{color:inherit}
 @media(max-width:960px){.crew{grid-template-columns:1fr}.pass{position:relative;top:0}}
 @media(max-width:480px){.roles{grid-template-columns:1fr}.seat{font-size:12px;min-height:60px}}
 
+/* ---------- beyond 150 alignment ---------- */
+#beyond150{position:relative;overflow:hidden}
+#beyond150::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(80,0,0,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(80,0,0,.04) 1px,transparent 1px);background-size:36px 36px;pointer-events:none}
+#beyond150 .in{position:relative}
+.b150-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;margin-bottom:44px}
+.b150-top .sec-head{margin-bottom:0}
+.b150-link{display:inline-flex;align-items:center;gap:8px;font:600 12px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);text-decoration:none;padding:12px 16px;border:1px solid rgba(80,0,0,.3);border-radius:999px;white-space:nowrap;background:#fff;transition:background .2s,color .2s}
+.b150-link:hover{background:var(--maroon);color:#fff}
+.b150-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:44px;align-items:start}
+.b150-grid>*{min-width:0}
+.col-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+.col-head .tag{color:var(--maroon)}
+/* route cascade: vision → HROE's leg → this race */
+.cascade{list-style:none;margin:0;padding:0 0 0 36px;position:relative;display:grid;gap:14px}
+.cascade::before{content:"";position:absolute;left:11px;top:22px;bottom:22px;border-left:3px dashed rgba(80,0,0,.35)}
+.cas{position:relative;background:#fff;border:1px solid var(--line-light);border-radius:12px;padding:18px 20px;display:grid;gap:7px}
+.cas::before{content:"";position:absolute;left:-36px;top:20px;width:22px;height:22px;border-radius:50%;background:var(--gold);border:3px solid var(--maroon)}
+.cas .tag{font-size:10px;color:var(--maroon)}
+.cas b{font:700 clamp(21px,2.1vw,27px)/1 var(--f-display);text-transform:uppercase;color:var(--ink);text-wrap:balance}
+.cas small{font-size:14px;color:#4d3838;line-height:1.45}
+.cas-hroe{background:var(--maroon);border-color:var(--maroon);box-shadow:6px 6px 0 var(--gold)}
+.cas-hroe::before{background:var(--maroon);border-color:var(--gold)}
+.cas-hroe .tag{color:var(--gold)}
+.cas-hroe b{color:#fff}
+.cas-hroe small{color:var(--body-dark)}
+.cas-race{background:#fffdf8;border:2px solid var(--gold)}
+.cas-race::before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 3px #fffdf8,0 0 0 5px var(--gold)}
+/* the twelve imperatives as route markers */
+.legend{display:inline-flex;flex-wrap:wrap;gap:14px;font:600 10px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);align-items:center}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-2px}
+.lg-hroe{background:var(--maroon);box-shadow:2px 2px 0 var(--gold)}
+.lg-route{background:#fff;border:2px solid var(--gold)}
+.markers{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.mk{position:relative;background:#fff;border:1px solid var(--line-light);border-radius:10px;padding:13px 12px 12px;display:flex;flex-direction:column;gap:6px;min-height:104px;transition:transform .15s,border-color .15s}
+.mk:hover{transform:translateY(-2px);border-color:var(--maroon)}
+.mk .n{font:600 10px var(--f-mono);letter-spacing:.16em;color:var(--muted)}
+.mk b{font:700 15px/1.05 var(--f-display);text-transform:uppercase;color:var(--ink);text-wrap:balance}
+.mk .badge{margin-top:auto;width:fit-content;padding:4px 6px;border-radius:3px;font:600 8px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
+.mk-route{border:2px solid var(--gold)}
+.mk-route .badge{background:var(--gold-soft);color:var(--maroon)}
+.mk-hroe{background:var(--maroon);border-color:var(--maroon);box-shadow:4px 4px 0 var(--gold);transform:scale(1.05)}
+.mk-hroe:hover{transform:scale(1.05) translateY(-2px);border-color:var(--maroon)}
+.mk-hroe .n{color:var(--gold)}
+.mk-hroe b{color:#fff;font-size:17px}
+.mk-hroe .badge{background:var(--gold);color:var(--ink)}
+/* match cards: Beyond 150 asks → the race delivers */
+.matches-head{margin:52px 0 16px}
+.matches-head h3{font:700 clamp(26px,3vw,38px)/1 var(--f-display);text-transform:uppercase;color:var(--maroon);margin-top:8px}
+.matches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.match{background:#fff;border:1px solid var(--line-light);border-radius:14px;padding:22px;display:grid;grid-template-rows:auto auto auto auto auto;gap:8px;transition:transform .2s,box-shadow .2s}
+.match:hover{transform:translateY(-3px);box-shadow:6px 6px 0 var(--gold)}
+.match .tag{font-size:10px;color:var(--muted)}
+.match p{font-size:15px;color:#4d3838;line-height:1.45;padding-bottom:14px;border-bottom:1px dashed var(--line-light);margin-bottom:6px}
+.match .does{color:var(--maroon)}
+.match b{font:700 clamp(19px,1.7vw,23px)/1.05 var(--f-display);text-transform:uppercase;color:var(--ink);text-wrap:balance}
+.match small{font:600 10px var(--f-mono);letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-top:auto;padding-top:8px}
+@media(min-width:901px){.matches{row-gap:0}.match{grid-row:span 5;grid-template-rows:subgrid}}
+/* president's line */
+.b150-quote{margin:48px 0 0;padding:28px 34px;border-left:8px solid var(--gold);background:var(--maroon);color:#fff;border-radius:0 14px 14px 0;display:grid;gap:12px;box-shadow:0 20px 40px rgba(80,0,0,.18)}
+.b150-quote p{font:700 clamp(24px,3vw,40px)/1.02 var(--f-display);text-transform:uppercase;color:#fff;text-wrap:balance}
+.b150-quote p span{color:var(--gold)}
+.b150-quote cite{font:600 11px var(--f-mono);letter-spacing:.12em;color:var(--sub-dark);font-style:normal;text-transform:uppercase}
+@media(max-width:960px){.b150-top{grid-template-columns:1fr;align-items:start}.b150-grid{grid-template-columns:1fr;gap:36px}.matches{grid-template-columns:1fr}}
+@media(max-width:560px){.markers{grid-template-columns:repeat(2,minmax(0,1fr))}.mk-hroe{transform:none}.mk-hroe:hover{transform:translateY(-2px)}.b150-quote{padding:22px 18px;border-left-width:6px}.cas{padding:16px}}
+
 /* ---------- drop timeline ---------- */
 .track{position:relative;height:8px;background:var(--cream-2);border-radius:4px;margin:0 0 30px}
 .track-fill{position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(90deg,var(--maroon),var(--gold));border-radius:4px}
@@ -418,7 +483,7 @@ footer b{font:700 18px var(--f-display);text-transform:uppercase;color:#fff;lett
       <svg viewBox="0 0 26 26" aria-hidden="true"><rect width="26" height="26" rx="5" fill="#ffc72c"/><path d="M8 21V5" stroke="#500000" stroke-width="2.2" stroke-linecap="round"/><path d="M8 5.5h11l-3 4 3 4H8z" fill="#500000"/></svg>
       <span><small>RACE TO BEYOND</small>HROE Amazing Race</span>
     </a>
-    <nav class="nav" aria-label="Sections"><a href="#route">The route</a><a href="#clue">Open clues</a><a href="#crew">Build your crew</a><a href="#drops">Dates</a><a href="#faq">FAQ</a></nav>
+    <nav class="nav" aria-label="Sections"><a href="#route">The route</a><a href="#clue">Open clues</a><a href="#crew">Build your crew</a><a href="#beyond150">Beyond 150</a><a href="#drops">Dates</a><a href="#faq">FAQ</a></nav>
     <div class="bar-right">
       <span class="chip">RACE STARTS IN <b id="chipDays">—</b> DAYS</span>
       <a class="btn btn-amber btn-sm" href="#in">I'm in</a>
@@ -630,7 +695,7 @@ footer b{font:700 18px var(--f-display);text-transform:uppercase;color:#fff;lett
       <div class="sec-head dest-intro" style="margin-bottom:0">
         <p class="tag">The reveal</p>
         <h2 class="display" id="destH">Your destination stays sealed.</h2>
-        <p>Every crew gets the same HROE strategic commitment. It stays sealed until the starting line.</p>
+        <p>Every crew gets the same HROE strategic commitment. It stays sealed until the starting line, and it comes straight off the university's own map: <a href="#beyond150" style="color:var(--gold)">Beyond 150</a>.</p>
       </div>
       <div class="marker">
         <div class="case-seal" aria-hidden="true"><span>Open at<br>the start<small>JAN 12</small></span></div>
@@ -647,7 +712,96 @@ footer b{font:700 18px var(--f-display);text-transform:uppercase;color:#fff;lett
     </div>
   </section>
 
-  
+
+<!-- BEYOND 150 ALIGNMENT -->
+  <section class="sec cream" id="beyond150" aria-labelledby="b150H">
+    <div class="in">
+      <div class="b150-top">
+        <div class="sec-head">
+          <p class="eyebrow" style="color:var(--maroon)">Beyond 150 · One University for Good</p>
+          <h2 class="display" id="b150H">Same map as the university.</h2>
+          <p>Texas A&amp;M set its direction in <b>Beyond 150</b>: one vision, four pillars, twelve strategic imperatives. HROE carries one of them. Every crew in this race runs on that map.</p>
+        </div>
+        <a class="b150-link" href="https://strategyandbusiness.tamu.edu/strategic-planning/index.html" target="_blank" rel="noopener">Read Beyond 150 ↗</a>
+      </div>
+
+      <div class="b150-grid">
+        <div>
+          <div class="col-head"><span class="tag">Route · from the vision to your crew</span></div>
+          <ol class="cascade" aria-label="How the race connects to the university vision">
+            <li class="cas">
+              <span class="tag">The vision · Texas A&amp;M</span>
+              <b>The trusted university for people called to serve as a force for good.</b>
+              <small>Beyond 150 is the north star for the whole university. Every division carries a piece of it.</small>
+            </li>
+            <li class="cas cas-hroe">
+              <span class="tag">Imperative 11 · HROE's leg</span>
+              <b>Cultivate a vision-driven and thriving workplace.</b>
+              <small>A workplace where purpose drives engagement and people are set up to do their best work. HROE owns this one.</small>
+            </li>
+            <li class="cas cas-race">
+              <span class="tag">This race · all of HROE</span>
+              <b>One strategic commitment. Every crew builds the answer.</b>
+              <small>The commitment stays sealed until January 12. It is drawn from this same map.</small>
+            </li>
+          </ol>
+        </div>
+
+        <div>
+          <div class="col-head"><span class="tag">The twelve imperatives</span><span class="legend"><span><i class="lg lg-hroe"></i>HROE's leg</span><span><i class="lg lg-route"></i>Practiced on the route</span></span></div>
+          <ol class="markers" aria-label="The twelve Beyond 150 strategic imperatives">
+            <li class="mk mk-route" title="Operate as one Texas A&M"><span class="n">NO. 01</span><b>Operate as one Texas A&amp;M</b><span class="badge">Cross-functional crews</span></li>
+            <li class="mk mk-route" title="Bring the Aggie Core Values to life"><span class="n">NO. 02</span><b>Core Values to life</b><span class="badge">How we race</span></li>
+            <li class="mk" title="Advance agile, future-forward academics for student success"><span class="n">NO. 03</span><b>Future-forward academics</b></li>
+            <li class="mk" title="Elevate health-related programs"><span class="n">NO. 04</span><b>Health programs</b></li>
+            <li class="mk" title="Enhance the research framework"><span class="n">NO. 05</span><b>Research framework</b></li>
+            <li class="mk" title="Lead in interdisciplinary discovery, innovation and entrepreneurship"><span class="n">NO. 06</span><b>Discovery &amp; innovation</b></li>
+            <li class="mk" title="Engage key stakeholders as university partners"><span class="n">NO. 07</span><b>University partners</b></li>
+            <li class="mk" title="Enrich Texas communities"><span class="n">NO. 08</span><b>Texas communities</b></li>
+            <li class="mk" title="Invest in world-class facilities planning and development"><span class="n">NO. 09</span><b>World-class facilities</b></li>
+            <li class="mk" title="Strategically grow for excellence"><span class="n">NO. 10</span><b>Grow for excellence</b></li>
+            <li class="mk mk-hroe" title="Cultivate a vision-driven and thriving workplace"><span class="n">NO. 11</span><b>A thriving workplace</b><span class="badge">HROE's leg</span></li>
+            <li class="mk" title="Champion the Aggie Spirit"><span class="n">NO. 12</span><b>The Aggie Spirit</b></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="matches-head">
+        <span class="tag" style="color:var(--maroon)">Built to match</span>
+        <h3>Imperative 11 asks for it. The race delivers it.</h3>
+      </div>
+      <div class="matches">
+        <article class="match">
+          <span class="tag">Beyond 150 asks</span>
+          <p>Help every employee understand the vision and see how their own work moves it.</p>
+          <span class="tag does">The race delivers</span>
+          <b>Every crew works a real HROE commitment, and the strongest ideas shape HROE's next move.</b>
+          <small>Strategic plan · Action 11.1.3</small>
+        </article>
+        <article class="match">
+          <span class="tag">Beyond 150 asks</span>
+          <p>Recognize people who lead and take part in cross-functional work.</p>
+          <span class="tag does">The race delivers</span>
+          <b>Crews mix HROE teams on purpose. Every finisher is recognized. The top three take the podium.</b>
+          <small>Strategic plan · Action 11.1.2</small>
+        </article>
+        <article class="match">
+          <span class="tag">Beyond 150 asks</span>
+          <p>Grow leaders and fund professional development for staff.</p>
+          <span class="tag does">The race delivers</span>
+          <b>Seven weeks of leading across teams, and a paid professional development course for the winning crew.</b>
+          <small>Strategic plan · Actions 11.2.1 &amp; 11.4.2</small>
+        </article>
+      </div>
+
+      <blockquote class="b150-quote">
+        <p>“A vision and strategic plan alone change nothing — <span>people do.</span>”</p>
+        <cite>Susan Ballabina, Ph.D. · President, Texas A&amp;M University · Beyond 150</cite>
+      </blockquote>
+    </div>
+  </section>
+
+
 <!-- DROPS -->
   <section class="sec light" id="drops" aria-labelledby="dropsH">
     <div class="in">
@@ -676,6 +830,7 @@ footer b{font:700 18px var(--f-display);text-transform:uppercase;color:#fff;lett
       <div class="list">
         <details><summary>Who can race?</summary><p>Everyone in HROE. Any role, any team, any level. Crews mix people from different teams, so whatever you know from your daily work is exactly what a crew needs.</p></details>
         <details><summary>What will we work on?</summary><p>Every crew works on the same HROE strategic commitment. Everyone finds out what it is on race day, January 12, along with the first clue.</p></details>
+        <details><summary>How does this connect to Beyond 150?</summary><p>Beyond 150 is the university's direction: one vision and twelve strategic imperatives. HROE carries Imperative 11, a vision-driven and thriving workplace. The commitment every crew races on comes from that same map, so the ideas you bring move HROE and Texas A&amp;M in the same direction.</p></details>
         <details><summary>Do I need to know about the TV show?</summary><p>Not at all. We borrow the fun parts: crews, clues and a finish line. Everything you need to know is on this page.</p></details>
         <details><summary>Can I bring my own crew?</summary><p>Yes, as long as it mixes teams. Build your own crew of 4 to 8 and submit it in the crew form. No crew yet? Pick that option in the form and we'll place you on one.</p></details>
         <details><summary>How much time does it take?</summary><p>Seven weeks, one short leg at a time, with feedback along the way. The expected weekly time will be shared before crews lock in December.</p></details>
