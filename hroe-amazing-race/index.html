@@ -1,0 +1,979 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><title>HROE Amazing Race</title><meta name="description" content="Build a cross-functional HROE crew and race together on the same HROE strategic commitment."><meta name="theme-color" content="#500000"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Open+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Race to Beyond · HROE Amazing Race
+   Aggie maroon (#500000) is the base. Amazing Race gold is the energy color. Cream + white for reading sections. */
+:root{
+  --maroon:#500000;
+  --maroon-deep:#3c0000;
+  --maroon-hi:#6e1414;
+  --maroon-soft:#8a3b3b;
+  --white:#ffffff;
+  --cream:#f8f3ec;
+  --cream-2:#efe6da;
+  --ink:#1d1a1a;
+  --muted:#6f5e5e;
+  --body-dark:#f3e3e3;
+  --sub-dark:#e2c8c8;
+  --gold:#ffc72c;
+  --gold-deep:#d69e00;
+  --gold-soft:#ffe08a;
+  --green:#8fbe57;
+  --line-dark:rgba(255,255,255,.2);
+  --line-light:rgba(80,0,0,.16);
+  --f-display:"Oswald","Arial Narrow","Helvetica Neue Condensed",Impact,sans-serif;
+  --f-body:"Open Sans","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --max:1240px;
+  --checker:conic-gradient(var(--gold) 25%,var(--ink) 0 50%,var(--gold) 0 75%,var(--ink) 0);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--maroon);color:var(--white);font:17px/1.6 var(--f-body);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--maroon)}
+h1,h2,h3,p{margin:0}
+button{font:inherit;cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.in{max-width:var(--max);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media(min-width:720px){.in{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+.tag{font:600 12px/1.3 var(--f-mono);letter-spacing:.16em;text-transform:uppercase}
+.display{font-family:var(--f-display);font-weight:700;text-transform:uppercase;line-height:.9;letter-spacing:-.005em;text-wrap:balance}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;width:fit-content;max-width:100%;padding:7px 12px;border:1px solid currentColor;border-radius:999px;font:600 10px/1.35 var(--f-mono);letter-spacing:.14em;text-transform:uppercase}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ---------- top bar ---------- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(80,0,0,.94);backdrop-filter:blur(14px);border-bottom:3px solid var(--gold)}
+.bar .in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 21px/1 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.logo svg{width:30px;height:30px;flex:none}
+.logo small{font:600 10px var(--f-mono);letter-spacing:.18em;color:var(--gold);display:block;margin-bottom:3px}
+.bar-right{display:flex;align-items:center;gap:12px}
+.nav{display:flex;gap:24px}
+.nav a{font:600 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--sub-dark);padding:6px 0;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--white);border-color:var(--gold)}
+@media(max-width:1100px){.nav{display:none}}
+.chip{font:600 12px var(--f-mono);letter-spacing:.08em;border:1px solid var(--line-dark);border-radius:999px;padding:8px 12px;white-space:nowrap}
+.chip b{color:var(--gold);font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:6px;font:700 16px/1 var(--f-display);text-transform:uppercase;letter-spacing:.06em;padding:16px 24px;text-decoration:none;transition:transform .15s,background .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-amber{background:var(--gold);color:var(--ink);box-shadow:0 4px 0 var(--gold-deep)}
+.btn-amber:active{transform:translateY(2px);box-shadow:0 1px 0 var(--gold-deep)}
+.btn-ghost{background:transparent;color:var(--white);box-shadow:inset 0 0 0 2px var(--line-dark)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 2px var(--white)}
+.btn-sm{padding:11px 16px;font-size:14px}
+@media(max-width:620px){.chip{display:none}.logo{font-size:18px}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:radial-gradient(900px 620px at 82% -6%,rgba(160,48,48,.55),transparent 70%),radial-gradient(700px 500px at -6% 110%,rgba(110,20,20,.7),transparent 70%),var(--maroon)}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(132deg,transparent 0 92px,rgba(255,255,255,.03) 92px 94px);pointer-events:none}
+.hero-route{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-top{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(380px,460px);gap:56px;align-items:center;padding-block:64px 44px}
+.hero-title{min-width:0}
+.hero .tag{color:var(--gold);display:flex;gap:10px;align-items:center;margin-bottom:22px}
+.hero .tag i{flex:none;width:8px;height:8px;border-radius:50%;background:var(--gold);animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+.hero h1{font-size:clamp(68px,9.6vw,148px);line-height:.86;text-shadow:0 8px 28px rgba(0,0,0,.25)}
+.hero h1 span{display:block}
+.hero h1 .l1{font-size:.5em;letter-spacing:.14em;line-height:1;margin-bottom:.12em;color:var(--white);display:flex;align-items:center;gap:.4em}
+.hero h1 .l1::after{content:"";flex:1;height:.09em;max-width:4.2em;background:var(--gold);border-radius:2px}
+.hero h1 .l2{color:var(--gold)}
+.hero h1 .l3{display:flex;align-items:center;gap:.16em}
+.hero h1 .l3 i{display:inline-block;width:.62em;height:.62em;border:.045em solid var(--white);background:conic-gradient(var(--white) 25%,var(--ink) 0 50%,var(--white) 0 75%,var(--ink) 0) 0 0/.2em .2em;transform:rotate(-8deg) translateY(-.04em);border-radius:.05em;box-shadow:0 .06em 0 rgba(0,0,0,.25)}
+.hero-bottom{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:center;padding-block:28px 48px;border-top:1px solid var(--line-dark)}
+.hero-lede{font-size:clamp(18px,1.6vw,21px);max-width:52ch;color:var(--body-dark)}
+.hero-lede b{color:var(--white)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.facts-strip{position:relative;z-index:1;background:rgba(40,0,0,.28);border-top:1px solid var(--line-dark)}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0}
+.facts div{padding:20px 22px;border-left:1px solid var(--line-dark);min-width:0}
+.facts div:first-child{border-left:0;padding-left:0}
+.facts dt{font:600 10px var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.facts dd{margin:4px 0 0;font-weight:600;font-size:16px;line-height:1.35;color:var(--white)}
+
+/* race clock (split-flap board) */
+.clock{position:relative;background:linear-gradient(#262020,#1d1919);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:22px 22px 18px;box-shadow:0 26px 50px rgba(30,0,0,.4),10px 10px 0 var(--gold);min-width:0}
+.clock::before{content:"";position:absolute;left:22px;right:22px;top:-7px;height:14px;border-radius:3px;background:var(--checker) 0 0/14px 14px;border:2px solid var(--ink)}
+.clock-head{display:flex;justify-content:space-between;gap:12px;font:600 11px var(--f-mono);letter-spacing:.16em;color:#bdb0b0;padding:6px 0 14px;border-bottom:1px dashed rgba(255,255,255,.16)}
+.clock-head b{color:var(--gold);font-weight:600}
+.clock-label{font:600 11px var(--f-mono);letter-spacing:.18em;color:var(--white);margin:16px 0 10px;text-align:center}
+.row{display:grid;grid-template-columns:78px 1fr;gap:12px;align-items:center;margin-top:10px}
+.row label{font:600 10px var(--f-mono);letter-spacing:.16em;color:#a99c9c}
+.flaps{display:flex;flex-wrap:nowrap;gap:2px;min-width:0}
+.f{display:inline-grid;place-items:center;flex:none;width:21px;height:29px;background:linear-gradient(#3a3232 50%,#302929 50%);border-radius:3px;font:600 16px var(--f-mono);color:#fbf4f4;position:relative;box-shadow:inset 0 -1px 0 rgba(0,0,0,.6)}
+.f::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.6)}
+.f.sp{background:transparent;box-shadow:none}
+.f.sp::after{display:none}
+.f.flip{animation:flip .35s ease-out}
+@keyframes flip{0%{transform:rotateX(0)}45%{transform:rotateX(-88deg)}55%{transform:rotateX(88deg)}100%{transform:rotateX(0)}}
+.count{display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;gap:8px;padding-bottom:16px;border-bottom:1px dashed rgba(255,255,255,.16)}
+.unit{text-align:center;min-width:0}
+.unit .flaps{justify-content:center;gap:3px}
+.unit .f{width:34px;height:54px;font:700 34px var(--f-display);color:var(--gold);border-radius:4px}
+.unit span{display:block;font:600 10px var(--f-mono);letter-spacing:.16em;color:#a99c9c;margin-top:8px}
+.clock-foot{margin-top:14px;font:500 11px var(--f-mono);color:#a99c9c;letter-spacing:.06em;display:flex;align-items:center;gap:8px}
+.clock-foot::before{content:"⚑";color:var(--gold);font-size:14px}
+.checker{position:relative;z-index:1;height:24px;background:conic-gradient(#fff 25%,var(--maroon) 0 50%,#fff 0 75%,var(--maroon) 0) 0 0/24px 24px;border-block:2px solid #fff}
+@media(max-width:1020px){
+  .hero-top{grid-template-columns:1fr;gap:40px;padding-block:48px 36px}
+  .clock{max-width:500px}
+  .hero-bottom{grid-template-columns:1fr;gap:22px}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts div:nth-child(3){border-left:0;padding-left:0}
+  .facts div:nth-child(n+3){border-top:1px solid var(--line-dark)}
+}
+@media(max-width:480px){
+  .clock{padding:18px 14px 14px;box-shadow:0 20px 40px rgba(30,0,0,.4),6px 6px 0 var(--gold)}
+  .row{grid-template-columns:62px 1fr;gap:8px}
+  .f{width:min(19px,calc((100vw - 152px) / 14 - 2px));height:26px;font-size:13px}
+  .unit .f{width:clamp(24px,7.4vw,30px);height:46px;font-size:28px}
+  .facts div{padding:16px 12px}
+  .facts div:nth-child(odd){padding-left:0}
+  .facts dd{font-size:14px}
+}
+
+/* ---------- marquee ---------- */
+.marquee{background:var(--gold);color:var(--maroon);overflow:hidden;white-space:nowrap;border-bottom:3px solid var(--maroon)}
+.marquee-track{display:inline-flex;animation:slide 34s linear infinite;padding-block:13px}
+.marquee-track span{font:700 24px/1 var(--f-display);text-transform:uppercase;letter-spacing:.04em;padding-inline:22px}
+.marquee-track span::after{content:"★";margin-left:44px;color:var(--maroon)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ---------- race map ---------- */
+.race-map{position:relative;background:#fff;color:var(--ink);overflow:hidden}
+.race-map::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(80,0,0,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(80,0,0,.035) 1px,transparent 1px);background-size:36px 36px;pointer-events:none}
+.race-map .in{position:relative;padding-block:96px}
+.map-top{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:58px;align-items:end;margin-bottom:48px}
+.map-top>*{min-width:0}
+.map-top h2{font-size:clamp(52px,6.6vw,96px);max-width:11ch;margin-top:20px;color:var(--maroon)}
+.map-top p{font-size:19px;color:#4d3838;max-width:47ch}
+.route-note{display:flex;align-items:center;gap:10px;margin-top:22px;color:var(--maroon);font:600 12px var(--f-mono);letter-spacing:.08em}
+.route-note::before{content:"✓";display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--maroon);color:#fff}
+.hype-course{position:relative;overflow:hidden;border-radius:22px;background:radial-gradient(650px 360px at 75% 10%,rgba(160,48,48,.6),transparent 72%),linear-gradient(145deg,#5c0606,var(--maroon) 55%,var(--maroon-hi));box-shadow:0 28px 60px rgba(80,0,0,.2)}
+.hype-course::before{content:"";position:absolute;left:0;right:0;top:0;height:16px;background:var(--checker) 0 0/32px 32px}
+.hype-route{position:absolute;inset:16px 0 72px;width:100%;height:calc(100% - 88px);opacity:.75;pointer-events:none}
+.hype-route path{fill:none;stroke-linecap:round;stroke-width:3;stroke-dasharray:10 14;animation:hypeFlow 9s linear infinite}
+@keyframes hypeFlow{to{stroke-dashoffset:-240}}
+.hype-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:64px 36px 112px}
+.hype-beat{position:relative;min-height:240px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;border:1px solid rgba(255,255,255,.22);border-radius:16px;padding:24px;background:rgba(255,255,255,.07);backdrop-filter:blur(8px);transition:transform .2s,border-color .2s}
+.hype-beat:hover{transform:translateY(-6px);border-color:var(--gold)}
+.hype-beat::before{content:attr(data-n);position:absolute;right:18px;top:16px;font:700 64px/.8 var(--f-display);color:rgba(255,199,44,.28)}
+.hype-beat .tag{color:var(--gold);font-size:11px}
+.hype-beat h3{font:700 clamp(36px,3.6vw,52px)/.9 var(--f-display);text-transform:uppercase;color:#fff;margin-top:10px}
+.hype-beat p{margin-top:12px;color:var(--body-dark);font-size:15px;line-height:1.5}
+.hype-finish{position:absolute;z-index:3;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;gap:14px;min-height:72px;padding:14px 24px;background:var(--gold);color:var(--maroon);text-align:center;font:700 clamp(21px,2.6vw,32px)/1 var(--f-display);text-transform:uppercase;letter-spacing:.04em}
+.hype-finish::before,.hype-finish::after{content:"⚑";font-size:26px}
+@media(max-width:900px){.map-top{grid-template-columns:1fr;gap:18px}.hype-grid{grid-template-columns:1fr;padding:52px 20px 108px}.hype-beat{min-height:180px}}
+@media(max-width:540px){.race-map .in{padding-block:64px}.hype-course{border-radius:16px}.hype-grid{padding-inline:14px}.hype-finish{font-size:19px}}
+
+/* ---------- section scaffolding ---------- */
+.sec{padding-block:100px}
+.sec-head{display:grid;align-content:start;gap:18px;max-width:780px;margin-bottom:52px}
+.sec-head h2{font-size:clamp(50px,6.8vw,96px)}
+.sec-head p{font-size:19px;max-width:52ch}
+.light{background:#fff;color:var(--ink)}
+.cream{background:var(--cream);color:var(--ink)}
+.light .tag,.cream .tag{color:var(--maroon)}
+.light .sec-head h2,.cream .sec-head h2{color:var(--maroon)}
+.light .sec-head p,.cream .sec-head p{color:#4d3838}
+.dark{background:var(--maroon)}
+.dark .tag{color:var(--gold)}
+.dark .sec-head p{color:var(--sub-dark)}
+@media(max-width:620px){.sec{padding-block:72px}.sec-head{margin-bottom:36px}}
+
+/* ---------- clue envelope ---------- */
+#clue.sec{padding-block:84px}
+.clue-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.clue-left{min-width:0}
+.clue-left .sec-head{margin-bottom:0;gap:16px}
+.clue-left .sec-head h2{font-size:clamp(46px,5.6vw,80px)}
+.clue-left .sec-head p{max-width:44ch;font-size:18px}
+.clue-steps{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;counter-reset:clue}
+.clue-steps li{counter-increment:clue;position:relative;padding:12px 10px 10px;border:1px solid var(--line-light);border-radius:8px;background:#fff;font:700 13px/1.05 var(--f-display);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.clue-steps li::before{content:"0" counter(clue);display:block;font:600 9px var(--f-mono);letter-spacing:.16em;margin-bottom:5px;color:inherit;opacity:.7}
+.clue-steps li::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;border-radius:0 0 8px 8px;background:transparent;transition:background .2s}
+.clue-steps li:hover{border-color:var(--maroon);color:var(--maroon)}
+.clue-steps li.read{color:var(--maroon);border-color:rgba(80,0,0,.3)}
+.clue-steps li.read::after{background:var(--maroon)}
+.clue-steps li.now{background:var(--maroon);border-color:var(--maroon);color:#fff}
+.clue-steps li.now::after{background:var(--gold)}
+.clue-ctrl{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:22px}
+.clue-count{font:600 12px var(--f-mono);letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+
+/* The envelope sits directly on the section. The stage reserves only the room the card needs when it slides out. */
+.stage{--ew:420px;--eh:244px;--ch:208px;--tuck:40px;--lift:calc(var(--ch) - var(--tuck) + 10px);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;width:100%;min-width:0;padding:var(--lift) 0 30px;overflow:visible;background:transparent}
+.env{position:relative;width:var(--ew);height:var(--eh);cursor:pointer;border-radius:8px;filter:drop-shadow(0 24px 20px rgba(80,0,0,.18));perspective:900px;-webkit-tap-highlight-color:transparent}
+.env::after{content:"";position:absolute;left:5%;right:5%;bottom:-30px;height:28px;background:radial-gradient(closest-side,rgba(80,0,0,.24),transparent);pointer-events:none}
+.env-back{position:absolute;left:0;right:0;bottom:0;top:32px;border-radius:8px;background:linear-gradient(155deg,#e8ad0d,#ffc72c 54%,#d99e00);box-shadow:inset 0 0 0 1px rgba(80,0,0,.14)}
+.env-back::before{content:"";position:absolute;z-index:1;left:0;right:0;top:0;height:58%;background:linear-gradient(145deg,#ffd75d,#f0b20b);clip-path:polygon(0 0,50% 72%,100% 0);transform-origin:50% 0;transition:transform .65s cubic-bezier(.2,.8,.25,1),filter .65s}
+.env.torn .env-back::before{transform:rotateX(168deg);filter:brightness(.88)}
+.pocket{position:absolute;z-index:2;left:0;right:0;bottom:0;top:calc(-1 * var(--lift) - 40px);overflow:hidden;pointer-events:none}
+.card{position:absolute;left:6%;right:6%;bottom:calc(var(--eh) - var(--ch) - 50px);height:var(--ch);padding:18px 22px var(--tuck);background:#fffdf8;color:var(--ink);border:1px solid rgba(80,0,0,.12);border-radius:4px;box-shadow:0 12px 26px rgba(80,0,0,.2);display:flex;flex-direction:column;gap:10px;transition:transform .45s cubic-bezier(.5,0,.75,0)}
+.card-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:10px;border-bottom:2px solid var(--gold);font:600 11px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--maroon)}
+.card-top span{color:var(--muted)}
+.card h3{font:700 25px/1.02 var(--f-display);text-transform:uppercase;color:var(--ink);margin-top:2px}
+.card p.body{font-size:14px;line-height:1.45;color:#4d3838}
+.env.out .card{transform:translateY(calc(-1 * (var(--ch) - var(--tuck) + 46px)));transition:transform .7s cubic-bezier(.2,.9,.25,1.05)}
+
+/* envelope front: gold body with a maroon tear strip across the top */
+.env-body{position:absolute;z-index:3;left:0;right:0;bottom:0;top:34px;border-radius:0 0 8px 8px;background:linear-gradient(35deg,transparent 49.6%,rgba(128,72,0,.22) 50%,transparent 50.8%),linear-gradient(-35deg,transparent 49.6%,rgba(128,72,0,.22) 50%,transparent 50.8%),linear-gradient(170deg,#ffd04a,var(--gold) 45%,#f2b700);background-size:51% 100%,51% 100%,100% 100%;background-position:left bottom,right bottom,0 0;background-repeat:no-repeat;display:grid;place-items:center;text-align:center;
+  -webkit-mask:conic-gradient(from 135deg at top,#0000,#000 1deg 89deg,#0000 90deg) top/14px 7px repeat-x,linear-gradient(#000 0 0) 0 7px/100% calc(100% - 7px) no-repeat;
+          mask:conic-gradient(from 135deg at top,#0000,#000 1deg 89deg,#0000 90deg) top/14px 7px repeat-x,linear-gradient(#000 0 0) 0 7px/100% calc(100% - 7px) no-repeat}
+.env-body::before{content:"";position:absolute;left:0;right:0;top:0;height:7px;background:linear-gradient(rgba(120,70,0,.25),transparent)}
+.env-mark{display:grid;gap:6px;color:var(--maroon);padding-top:6px}
+.env-mark small{font:600 10px var(--f-mono);letter-spacing:.24em}
+.env-mark b{font:700 30px/1 var(--f-display);text-transform:uppercase;letter-spacing:.05em}
+.env-mark svg{width:26px;height:26px;margin:0 auto 2px}
+.strip{position:absolute;z-index:4;left:0;right:0;top:0;height:41px;border-radius:8px 8px 0 0;background:var(--maroon);color:var(--gold);display:flex;align-items:center;gap:10px;padding:0 16px 7px;transform-origin:0 50%;
+  -webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/14px 7px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 7px) no-repeat;
+          mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/14px 7px repeat-x,linear-gradient(#000 0 0) 0 0/100% calc(100% - 7px) no-repeat;
+  transition:transform .25s ease}
+.strip span{font:600 11px var(--f-mono);letter-spacing:.2em}
+.strip i{font-style:normal;margin-left:auto;font:700 16px/1 var(--f-display);letter-spacing:.06em;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateX(6px)}}
+.env:not(.torn):hover .strip{transform:rotate(-1.6deg) translateY(-2px)}
+.env.torn .strip{animation:rip .7s cubic-bezier(.4,0,.6,1) forwards;pointer-events:none}
+@keyframes rip{
+  0%{transform:none}
+  30%{transform:rotate(-4deg) translate(4px,-6px)}
+  100%{transform:rotate(16deg) translate(110%,-70px);opacity:0}
+}
+.env.ripping{animation:tug .3s ease}
+@keyframes tug{40%{transform:translateY(4px)}}
+.stage-hint{margin-top:30px;font:600 11px var(--f-mono);letter-spacing:.16em;color:var(--maroon);text-align:center;min-height:14px}
+@media(max-width:900px){
+  #clue.sec{padding-block:64px}
+  .clue-grid{grid-template-columns:1fr;gap:28px}
+  .clue-left .sec-head p{max-width:52ch}
+}
+@media(max-width:560px){
+  .clue-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stage{--ew:min(330px,calc(100vw - 36px));--eh:200px;--ch:224px;--tuck:36px;padding-bottom:24px}
+  .card{padding:16px 16px var(--tuck)}
+  .card h3{font-size:23px}
+  .card p.body{font-size:14px;line-height:1.45}
+  .env-mark b{font-size:26px}
+  .strip span{font-size:10px;letter-spacing:.16em}
+}
+
+/* ---------- destination ---------- */
+#destination{position:relative;overflow:hidden;background:radial-gradient(750px 500px at 92% 20%,rgba(160,48,48,.5),transparent 70%),linear-gradient(155deg,#5c0606,var(--maroon) 58%,var(--maroon-hi))}
+.dest{position:relative;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.dest-intro{position:relative;z-index:2;min-width:0}
+.dest-intro h2{font-size:clamp(48px,5.6vw,84px);max-width:10ch}
+.dest-intro p{color:var(--sub-dark)}
+.marker{position:relative;min-width:0;padding:36px 12px 10px 0}
+.case-seal{position:absolute;z-index:5;right:-4px;top:-4px;width:120px;height:120px;border-radius:50%;display:grid;place-items:center;text-align:center;background:conic-gradient(var(--gold) 0 25%,var(--ink) 0 50%,var(--gold) 0 75%,var(--ink) 0);color:var(--ink);transform:rotate(9deg);box-shadow:0 0 0 5px var(--maroon),0 18px 38px rgba(30,0,0,.4)}
+.case-seal::before{content:"";position:absolute;inset:10px;border-radius:50%;background:var(--gold);box-shadow:inset 0 0 0 2px var(--ink),inset 0 0 0 7px var(--gold),inset 0 0 0 9px var(--ink)}
+.case-seal span{position:relative;z-index:1;font:700 16px/.9 var(--f-display);text-transform:uppercase;letter-spacing:.04em}
+.case-seal small{display:block;font:600 8px/1.2 var(--f-mono);letter-spacing:.1em;margin-top:6px}
+.dest-card{position:relative;overflow:hidden;background:linear-gradient(160deg,#2a2323,#1d1919);border:2px solid var(--gold);border-radius:18px;padding:78px 32px 28px;box-shadow:14px 14px 0 rgba(30,0,0,.3),0 30px 60px rgba(30,0,0,.4)}
+.dest-card::after{content:"CONFIDENTIAL";position:absolute;right:-42px;bottom:54px;padding:8px 46px;border:2px solid rgba(255,199,44,.22);color:rgba(255,199,44,.22);font:700 20px/1 var(--f-display);letter-spacing:.08em;transform:rotate(-45deg);pointer-events:none}
+.case-tape{position:absolute;left:-26px;right:84px;top:28px;overflow:hidden;white-space:nowrap;transform:rotate(-2deg);background:var(--gold);color:var(--ink);padding:9px 30px;font:700 15px/1 var(--f-display);text-transform:uppercase;letter-spacing:.08em;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.dest-head{display:flex;justify-content:space-between;gap:12px;font:600 11px var(--f-mono);letter-spacing:.16em;color:#bdb0b0;border-bottom:1px dashed rgba(255,255,255,.16);padding-bottom:15px}
+.dest-head b{color:var(--gold);font-weight:600}
+.dest-label{font:600 11px var(--f-mono);letter-spacing:.16em;color:#a99c9c;margin:22px 0 10px}
+.dest-flaps{display:block;width:100%;background:transparent;border:0;padding:0;text-align:left;cursor:pointer;position:relative;z-index:2}
+.dest-flaps .flaps{gap:4px}
+.dest-flaps .f{width:clamp(26px,3.2vw,42px);height:clamp(40px,4.6vw,58px);font:700 clamp(22px,2.8vw,36px) var(--f-display);color:var(--gold)}
+.dest-flaps:hover .f{background:linear-gradient(#463c3c 50%,#3a3232 50%)}
+.sealed-status{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:8px 11px;border-radius:999px;background:rgba(255,199,44,.12);border:1px solid rgba(255,199,44,.35);color:var(--gold);font:600 10px/1 var(--f-mono);letter-spacing:.12em}
+.sealed-status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);animation:blink 1.4s infinite}
+.assignment-strip{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px;padding:14px 0;border-block:1px dashed rgba(255,255,255,.16)}
+.assignment-strip span{font:600 10px var(--f-mono);letter-spacing:.16em;color:#a99c9c;text-transform:uppercase}
+.assignment-strip b{font:700 21px/1 var(--f-display);text-transform:uppercase;color:#fff;text-align:right}
+.dest-msg{margin-top:14px;font:600 12px var(--f-mono);letter-spacing:.06em;color:#d9cccc;min-height:16px;position:relative;z-index:2}
+@media(max-width:960px){.dest{grid-template-columns:1fr;gap:26px}.marker{max-width:680px}}
+@media(max-width:620px){.marker{padding:32px 0 0}.case-seal{width:92px;height:92px;right:-2px}.case-seal span{font-size:13px}.dest-card{padding:72px 16px 22px}.case-tape{right:64px;font-size:13px}.assignment-strip{align-items:flex-start;flex-direction:column}.assignment-strip b{text-align:left}}
+
+/* ---------- prizes ---------- */
+.prizes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.prize{position:relative;background:#fff;border:2px solid var(--maroon);border-radius:16px;padding:28px 26px 24px;display:flex;flex-direction:column;gap:16px;box-shadow:6px 6px 0 var(--gold);transition:transform .2s,box-shadow .2s}
+.prize:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--gold)}
+.prize>div:not(.stamp){display:grid;gap:10px;flex:1;align-content:start}
+.stamp{flex:none;width:96px;height:96px;border-radius:50%;border:4px double var(--maroon);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:var(--maroon);font:700 15px/1 var(--f-display);text-transform:uppercase;letter-spacing:.04em;transform:rotate(-12deg);transition:transform .35s cubic-bezier(.3,1.6,.5,1);background:radial-gradient(circle,rgba(255,199,44,.18),transparent 70%)}
+.stamp small{display:block;font:600 8px var(--f-mono);letter-spacing:.12em;margin-top:4px}
+.prize:hover .stamp{transform:rotate(4deg) scale(1.06)}
+.prize h3{font:700 30px/1 var(--f-display);text-transform:uppercase;color:var(--ink)}
+.prize p{font-size:16px;color:#4d3838}
+.prize .k{font:600 11px var(--f-mono);letter-spacing:.14em;color:var(--maroon);margin-top:auto;padding-top:12px;border-top:1px dashed var(--line-light)}
+@media(min-width:901px){
+  .prizes{row-gap:10px}
+  .prize{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:10px}
+  .prize>.stamp{margin-bottom:6px}
+  .prize>div:not(.stamp){grid-row:span 3;grid-template-rows:subgrid;align-content:normal}
+  .prize .k{margin-top:0}
+}
+@media(max-width:900px){.prizes{grid-template-columns:1fr}.prize{flex-direction:row;flex-wrap:wrap;align-items:center}.prize>div:not(.stamp){flex:1 1 260px;min-width:0}}
+
+/* ---------- crew builder ---------- */
+.crew{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:start}
+.roles{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.role{text-align:left;background:rgba(255,255,255,.07);color:var(--white);border:1px solid var(--line-dark);border-radius:10px;padding:18px;display:grid;gap:6px;transition:background .2s,border-color .2s,transform .15s;position:relative}
+.role:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.11);transform:translateY(-2px)}
+.role:disabled{cursor:not-allowed;opacity:.52;transform:none}
+.role[aria-pressed="true"]{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.role[aria-pressed="true"]::after{content:"✓";position:absolute;right:14px;top:13px;width:26px;height:26px;display:grid;place-items:center;border-radius:50%;background:var(--maroon);color:var(--gold);font-weight:700}
+.role b{font:700 21px/1.05 var(--f-display);text-transform:uppercase}
+.role small{font-size:14px;color:var(--sub-dark);line-height:1.45}
+.role[aria-pressed="true"] small{color:#4d3838}
+.role em{font-style:normal;font:600 10px var(--f-mono);letter-spacing:.12em;color:#d6b0b0}
+.role[aria-pressed="true"] em{color:var(--maroon)}
+.pass{background:#fffdf8;color:var(--ink);border-radius:14px;overflow:hidden;box-shadow:0 30px 60px rgba(30,0,0,.35);position:sticky;top:96px}
+.pass-top{background:var(--gold);color:var(--maroon);padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.pass-top span{font:600 10px var(--f-mono);letter-spacing:.16em}
+.pass-top b{font:700 20px var(--f-display);text-transform:uppercase;letter-spacing:.04em}
+.pass-body{padding:22px;display:grid;gap:18px;position:relative}
+.pass-body::before,.pass-body::after{content:"";position:absolute;top:-12px;width:24px;height:24px;border-radius:50%;background:var(--maroon)}
+.pass-body::before{left:-12px}.pass-body::after{right:-12px}
+.pass-name{font:700 clamp(32px,4.2vw,46px)/.95 var(--f-display);text-transform:uppercase;color:var(--maroon);text-wrap:balance;min-height:2em}
+.pass-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;font:600 10px var(--f-mono);letter-spacing:.12em;color:var(--muted)}
+.pass-meta b{display:block;font:700 18px var(--f-display);color:var(--ink);letter-spacing:.02em;margin-top:3px}
+.seats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.seat{border:2px dashed #dccbcb;border-radius:6px;min-height:58px;display:grid;place-items:center;text-align:center;padding:6px;font:700 13px/1.05 var(--f-display);text-transform:uppercase;color:#b8a3a3;overflow-wrap:anywhere}
+.seat.opt{border-color:#ebe0e0;color:#cdbcbc}
+.seat.full{border-style:solid;border-color:var(--maroon);background:#f7ecec;color:var(--maroon)}
+.mix-meter{display:grid;gap:8px;font:600 11px var(--f-mono);letter-spacing:.14em;color:var(--maroon)}
+.mix-bar{height:10px;background:#efe3e3;border-radius:5px;overflow:hidden}
+.mix-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--maroon),var(--gold));transition:width .35s}
+.tip{font-size:15px;color:#4d3838;background:#fbf3e0;border-left:4px solid var(--gold);padding:12px 14px;border-radius:0 6px 6px 0;min-height:52px}
+.ready-pill{display:inline-flex;align-items:center;gap:8px;width:max-content;max-width:100%;padding:8px 11px;border-radius:999px;background:#f1e7e7;color:var(--muted);font:700 10px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
+.ready-pill::before{content:"";width:8px;height:8px;border-radius:50%;background:#b99}
+.ready-pill.go{background:#e5efd9;color:#35570f}.ready-pill.go::before{background:var(--green);box-shadow:0 0 0 4px rgba(143,190,87,.2)}
+.pass-actions{display:flex;flex-wrap:wrap;gap:10px}
+.pass-actions .btn-ghost{color:var(--maroon);box-shadow:inset 0 0 0 2px var(--line-light)}
+.pass-actions .btn-ghost:hover{box-shadow:inset 0 0 0 2px var(--maroon)}
+.barcode{height:44px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 5px,var(--ink) 5px 6px,transparent 6px 10px,var(--ink) 10px 13px,transparent 13px 15px);opacity:.85;border-radius:2px}
+@media(max-width:960px){.crew{grid-template-columns:1fr}.pass{position:relative;top:0}}
+@media(max-width:480px){.roles{grid-template-columns:1fr}.seat{font-size:12px;min-height:60px}}
+
+/* ---------- drop timeline ---------- */
+.track{position:relative;height:8px;background:var(--cream-2);border-radius:4px;margin:0 0 30px}
+.track-fill{position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(90deg,var(--maroon),var(--gold));border-radius:4px}
+.today{position:absolute;top:16px;transform:translateX(-50%);font:600 10px var(--f-mono);letter-spacing:.14em;color:var(--maroon);white-space:nowrap}
+.today::before{content:"";position:absolute;left:50%;top:-20px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--gold);border:3px solid var(--maroon)}
+.drops{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.drop{background:#fff;border:1px solid var(--line-light);border-radius:12px;padding:22px 20px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.drop .when{font:700 22px/1 var(--f-display);color:var(--maroon);letter-spacing:.02em}
+.drop .state{align-self:flex-start;font:600 10px var(--f-mono);letter-spacing:.14em;padding:5px 8px;border-radius:3px;background:var(--cream-2);color:var(--muted)}
+.drop h3{font:700 30px/.95 var(--f-display);text-transform:uppercase}
+.drop p{font-size:15px;color:#4d3838}
+.drop .move{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line-light);color:var(--ink);font-weight:600}
+.drop .move b{display:block;font:600 10px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--maroon);margin-bottom:3px}
+.drop.live{background:var(--maroon);border-color:var(--maroon);color:#fff;box-shadow:6px 6px 0 var(--gold)}
+.drop.live .when{color:var(--gold)}
+.drop.live p{color:var(--body-dark)}
+.drop.live .move{color:#fff;border-color:rgba(255,255,255,.25)}
+.drop.live .move b{color:var(--gold)}
+.drop.live .state{background:var(--gold);color:var(--ink)}
+.drop.done{opacity:.6}
+@media(max-width:900px){.drops{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.drops{grid-template-columns:1fr}.track{display:none}}
+
+/* ---------- faq ---------- */
+.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}
+.faq details{border-bottom:1px solid var(--line-light)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:22px 0;font:700 23px/1.1 var(--f-display);text-transform:uppercase;color:var(--ink)}
+.faq summary:hover{color:var(--maroon)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--maroon);color:var(--gold);font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 0 22px;color:#4d3838;max-width:60ch}
+.faq .list{border-top:1px solid var(--line-light)}
+@media(max-width:860px){.faq{grid-template-columns:1fr;gap:20px}}
+
+/* ---------- finale ---------- */
+.finale{position:relative;text-align:center;background:radial-gradient(800px 420px at 50% 0%,rgba(160,48,48,.6),transparent 70%),var(--maroon);overflow:hidden}
+.finale::before{content:"";position:absolute;inset:0 0 auto;height:24px;background:conic-gradient(#fff 25%,var(--maroon) 0 50%,#fff 0 75%,var(--maroon) 0) 0 0/24px 24px;border-bottom:2px solid #fff}
+.finale .in{padding-block:120px 90px;position:relative;z-index:1}
+.finale h2{font-size:clamp(80px,15vw,210px);line-height:.84}
+.finale h2 span{color:var(--gold)}
+.finale p{font-size:20px;max-width:40ch;margin:24px auto 34px;color:var(--body-dark)}
+.pledge{font-size:clamp(22px,3vw,30px);padding:22px 38px}
+.pledge.done{background:#fff;color:var(--maroon);box-shadow:0 4px 0 #d9c4c4}
+.pledge-note{margin-top:18px;font:600 11px var(--f-mono);letter-spacing:.12em;color:var(--sub-dark);min-height:16px}
+#confetti{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+footer{background:var(--maroon-deep);color:#d6bcbc;font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-block:28px}
+footer b{font:700 18px var(--f-display);text-transform:uppercase;color:#fff;letter-spacing:.03em}
+
+.mobile-cta{display:none;position:fixed;z-index:48;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom,0px));padding:10px;border:1px solid var(--line-dark);border-radius:12px;background:rgba(80,0,0,.95);backdrop-filter:blur(14px);box-shadow:0 14px 40px rgba(30,0,0,.35)}
+.mobile-cta a{width:100%}
+@media(max-width:700px){.mobile-cta{display:block}footer .in{padding-bottom:100px}}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .env.torn .strip{opacity:0;transform:translateX(110%)}
+}
+</style>
+
+<header class="bar">
+  <div class="in">
+    <a class="logo" href="#top" aria-label="Race to Beyond, back to top">
+      <svg viewBox="0 0 26 26" aria-hidden="true"><rect width="26" height="26" rx="5" fill="#ffc72c"/><path d="M8 21V5" stroke="#500000" stroke-width="2.2" stroke-linecap="round"/><path d="M8 5.5h11l-3 4 3 4H8z" fill="#500000"/></svg>
+      <span><small>RACE TO BEYOND</small>HROE Amazing Race</span>
+    </a>
+    <nav class="nav" aria-label="Sections"><a href="#route">The route</a><a href="#clue">Open clues</a><a href="#crew">Build your crew</a><a href="#drops">Dates</a><a href="#faq">FAQ</a></nav>
+    <div class="bar-right">
+      <span class="chip">RACE STARTS IN <b id="chipDays">—</b> DAYS</span>
+      <a class="btn btn-amber btn-sm" href="#in">I'm in</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="h1">
+    <svg class="hero-route" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40 660 C 180 640 260 520 420 560 S 640 680 780 560 S 900 360 1040 400 S 1200 300 1260 260" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="54" stroke-linecap="round"/>
+      <path d="M-40 660 C 180 640 260 520 420 560 S 640 680 780 560 S 900 360 1040 400 S 1200 300 1260 260" fill="none" stroke="#ffc72c" stroke-width="2.5" stroke-dasharray="14 16" opacity=".55"/>
+    </svg>
+    <div class="in hero-top">
+      <div class="hero-title">
+        <p class="tag"><i></i>Texas A&amp;M HROE · Starts Jan 12, 2027</p>
+        <h1 class="display" id="h1"><span class="l1">HROE</span><span class="l2">Amazing</span><span class="l3">Race<i aria-hidden="true"></i></span></h1>
+      </div>
+
+      <div class="clock" role="timer" aria-label="Race clock counting down to the January 12 kickoff">
+        <div class="clock-head"><span>RACE CLOCK · AGGIELAND</span><b>● ON TIME</b></div>
+        <p class="clock-label">STARTING LINE IN</p>
+        <div class="count" aria-live="off">
+          <div class="unit"><div class="flaps" id="cd-d"></div><span>DAYS</span></div>
+          <div class="unit"><div class="flaps" id="cd-h"></div><span>HRS</span></div>
+          <div class="unit"><div class="flaps" id="cd-m"></div><span>MIN</span></div>
+          <div class="unit"><div class="flaps" id="cd-s"></div><span>SEC</span></div>
+        </div>
+        <div class="row"><label>RACE</label><div class="flaps" data-text="RACE TO BEYOND"></div></div>
+        <div class="row"><label>BOARDING</label><div class="flaps" data-text="ALL OF HROE"></div></div>
+        <div class="row"><label>STATUS</label><div class="flaps" id="statusFlaps" data-text="NOW RECRUITING"></div></div>
+        <p class="clock-foot">GREEN FLAG · TUE JAN 12 2027</p>
+      </div>
+    </div>
+
+    <div class="in hero-bottom">
+      <p class="hero-lede"><b>Build a crew from across HROE.</b> Race together and bring different ideas to the same HROE strategic commitment.</p>
+      <div class="hero-cta">
+        <a class="btn btn-amber" href="#route">See the route →</a>
+        <a class="btn btn-ghost" href="#crew">Build a crew</a>
+      </div>
+    </div>
+
+    <div class="facts-strip">
+      <div class="in">
+        <dl class="facts">
+          <div><dt>Who</dt><dd>Everyone in HROE</dd></div>
+          <div><dt>Crew</dt><dd>4–8 people from different teams</dd></div>
+          <div><dt>When</dt><dd>Starts Jan 12 · runs 7 weeks</dd></div>
+          <div><dt>Finish line</dt><dd>A stronger idea, built together</dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="checker" aria-hidden="true"></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Cross-functional crews</span><span>Respect</span><span>Excellence</span><span>Leadership</span><span>Loyalty</span><span>Integrity</span><span>Selfless service</span><span>No experience needed</span><span>Gig 'em</span>
+      <span>Cross-functional crews</span><span>Respect</span><span>Excellence</span><span>Leadership</span><span>Loyalty</span><span>Integrity</span><span>Selfless service</span><span>No experience needed</span><span>Gig 'em</span>
+    </div>
+  </div>
+
+  <!-- RACE MAP -->
+  <section class="race-map" id="route" aria-labelledby="routeH">
+    <div class="in">
+      <div class="map-top">
+        <div>
+          <p class="eyebrow" style="color:var(--maroon)">How your ideas shape our direction</p>
+          <h2 class="display" id="routeH">One direction.<br>Many paths forward.</h2>
+        </div>
+        <div>
+          <p>Every crew starts with a different mix of roles, experience and point of view. Every crew takes the same HROE strategic commitment down its own path, then brings its strongest ideas back to a shared direction.</p>
+          <p class="route-note">Your voice helps shape what HROE does next</p>
+        </div>
+      </div>
+      <div class="hype-course" aria-label="Different crews and different ideas moving toward one shared HROE direction">
+        <svg class="hype-route" viewBox="0 0 1200 420" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-40 90 C230 35 270 220 500 165 S790 60 1240 130" stroke="#ffb81c"/>
+          <path d="M-40 245 C210 320 330 80 560 230 S910 340 1240 215" stroke="#f8f2e8"/>
+          <path d="M-40 355 C260 245 370 390 630 290 S890 125 1240 340" stroke="#7d1616"/>
+        </svg>
+        <div class="hype-grid">
+          <article class="hype-beat" data-n="01"><span class="tag">Cross-functional by design</span><h3>Different crews.</h3><p>New teammates. New energy. More of HROE in every conversation.</p></article>
+          <article class="hype-beat" data-n="02"><span class="tag">Every voice adds something</span><h3>Different ideas.</h3><p>No single right path. Build on each other and make the idea stronger.</p></article>
+          <article class="hype-beat" data-n="03"><span class="tag">One shared finish line</span><h3>One direction.</h3><p>Bring your best thinking forward and help move HROE's strategy.</p></article>
+        </div>
+        <div class="hype-finish">Make your mark on what comes next</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLUE -->
+  <section class="sec cream" id="clue" aria-labelledby="clueH">
+    <div class="in clue-grid">
+      <div class="clue-left">
+        <div class="sec-head">
+          <p class="tag">Your first clue</p>
+          <h2 class="display" id="clueH">Open your clue.</h2>
+          <p>Every leg of an Amazing Race starts with a clue envelope. Tear yours open to learn how the race works.</p>
+        </div>
+        <ol class="clue-steps" id="clueSteps" aria-label="The four clues">
+          <li>Route Info</li><li>Detour</li><li>Roadblock</li><li>Pit Stop</li>
+        </ol>
+        <div class="clue-ctrl">
+          <button class="btn btn-amber" id="clueBtn" type="button">Tear it open</button>
+          <span class="clue-count" id="clueCount">4 clues inside</span>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="env" id="env" role="button" tabindex="0" aria-label="Sealed clue envelope. Press to tear it open.">
+          <div class="env-back"></div>
+          <div class="pocket">
+            <article class="card" id="card" aria-live="polite">
+              <div class="card-top"><b id="clueType">Route Info</b><span id="clueNum">1 of 4</span></div>
+              <h3 id="clueTitle">A team challenge for all of HROE.</h3>
+              <p class="body" id="clueBody"></p>
+            </article>
+          </div>
+          <div class="env-body"><div class="env-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 21V4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M6 4.5h12l-3 4 3 4H6z" fill="currentColor"/></svg><small>TEXAS A&amp;M · HROE</small><b>Amazing Race</b></div></div>
+          <div class="strip" aria-hidden="true"><span>TEAR HERE</span><i>→</i></div>
+        </div>
+        <p class="stage-hint" id="envLabel">TAP THE ENVELOPE TO TEAR IT OPEN</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIZES -->
+  <section class="sec light" id="win" aria-labelledby="winH">
+    <div class="in">
+      <div class="sec-head">
+        <p class="tag">What you take home</p>
+        <h2 class="display" id="winH">Three things you take with you.</h2>
+        <p>Every racer gets all three. The point is to make HROE's next move with more voices in the room.</p>
+      </div>
+      <div class="prizes">
+        <article class="prize">
+          <div class="stamp">Impact<small>REAL STRATEGY</small></div>
+          <div>
+            <h3>Your ideas, shaping the shared strategic commitment.</h3>
+            <p>The strongest pieces from every crew come together in one HROE answer. You can say, “We helped build that.”</p>
+            <span class="k">YOU HELP SHAPE WHAT'S NEXT</span>
+          </div>
+        </article>
+        <article class="prize">
+          <div class="stamp">Crew<small>ALL OF HROE</small></div>
+          <div>
+            <h3>A crew from all over HROE.</h3>
+            <p>Crews mix people from different HROE teams on purpose. Leave with friends and go-to contacts you'd never have met at your desk.</p>
+            <span class="k">CROSS-FUNCTIONAL BY DESIGN</span>
+          </div>
+        </article>
+        <article class="prize">
+          <div class="stamp">Growth<small>YOURS TO KEEP</small></div>
+          <div>
+            <h3>Skills that stay with you.</h3>
+            <p>Lead across teams. Build what HROE needs next. Grow as a professional. You practice it on real HROE work, every finisher gets recognized, and the winning crew earns a paid professional development course.</p>
+            <span class="k">WIN A PAID PROFESSIONAL DEVELOPMENT COURSE</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREW -->
+  <section class="sec dark" id="crew" aria-labelledby="crewH">
+    <div class="in">
+      <div class="sec-head">
+        <p class="tag">Build your crew · 4 to 8 people</p>
+        <h2 class="display" id="crewH">Mix your crew.</h2>
+        <p>Start with your own area. Then add people who see the work from a different angle. Your boarding pass shows when the mix is race-ready.</p>
+      </div>
+      <div class="crew">
+        <div class="roles" id="roles" role="group" aria-label="HROE teams"></div>
+        <aside class="pass" aria-live="polite">
+          <div class="pass-top"><b>Boarding pass</b><span>ADMIT ONE CREW</span></div>
+          <div class="pass-body">
+            <span class="ready-pill" id="readyPill">Not ready yet · choose 4 teams</span>
+            <div>
+              <span class="tag" style="color:var(--muted)">CREW NAME</span>
+              <p class="pass-name" id="crewName">Tap where you work</p>
+            </div>
+            <div class="seats" id="seats"></div>
+            <div class="mix-meter"><span id="mixLabel">CREW MIX · 0 TEAMS</span><div class="mix-bar"><i id="mixFill"></i></div></div>
+            <div class="pass-meta">
+              <span>DEPARTS<b>JAN 12</b></span>
+              <span>CREW<b>4–8</b></span>
+              <span>REVEAL<b>JAN 12</b></span>
+            </div>
+            <p class="tip" id="crewTip">Start with your own team. Then go find people who see the work differently.</p>
+            <div class="pass-actions">
+              <button class="btn btn-amber btn-sm" id="shuffle" type="button">Shuffle crew name</button>
+              <button class="btn btn-ghost btn-sm" id="copyCrew" type="button">Copy recruiting message</button>
+              <button class="btn btn-ghost btn-sm" id="resetCrew" type="button">Start over</button>
+            </div>
+            <p class="tag" id="copyMsg" style="color:var(--maroon);min-height:14px"></p>
+            <div class="barcode" aria-hidden="true"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  
+<!-- DESTINATION -->
+  <section class="sec dark" id="destination" aria-labelledby="destH">
+    <div class="in dest">
+      <div class="sec-head dest-intro" style="margin-bottom:0">
+        <p class="tag">The reveal</p>
+        <h2 class="display" id="destH">Your destination stays sealed.</h2>
+        <p>Every crew gets the same HROE strategic commitment. It stays sealed until the starting line.</p>
+      </div>
+      <div class="marker">
+        <div class="case-seal" aria-hidden="true"><span>Open at<br>the start<small>JAN 12</small></span></div>
+        <article class="dest-card">
+          <div class="case-tape" aria-hidden="true">Starting line · do not open · starting line</div>
+          <div class="dest-head"><span>CREW ASSIGNMENT · CONFIDENTIAL</span><b>LEG 01</b></div>
+          <p class="dest-label">THE SHARED HROE STRATEGIC COMMITMENT</p>
+          <button type="button" class="dest-flaps" id="destBtn" aria-label="Destination is hidden until January 12. Press to try your luck."><span class="flaps" id="destFlaps"></span></button>
+          <p class="sealed-status">SEALED UNTIL THE STARTING LINE</p>
+          <div class="assignment-strip"><span>Reveal</span><b>January 12 · Starting line</b></div>
+          <p class="dest-msg" id="destMsg" aria-live="polite">Tap the board if you cannot resist a peek.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  
+<!-- DROPS -->
+  <section class="sec light" id="drops" aria-labelledby="dropsH">
+    <div class="in">
+      <div class="sec-head">
+        <p class="tag">Road to the starting line</p>
+        <h2 class="display" id="dropsH">Know your next move.</h2>
+        <p>One date, one simple action. The dates below are part of this working concept and should be confirmed before launch.</p>
+      </div>
+      <div class="track" aria-hidden="true"><div class="track-fill" id="trackFill"></div><span class="today" id="today">TODAY</span></div>
+      <ol class="drops" id="drops-list">
+        <li class="drop" data-date="2026-10-27"><span class="when">OCT 27</span><span class="state"></span><h3>The tease</h3><p>The race gets announced and this site goes live.</p><p class="move"><b>Your move</b>Open the clues and tell a coworker.</p></li>
+        <li class="drop" data-date="2026-11-09"><span class="when">NOV 9</span><span class="state"></span><h3>Crew call</h3><p>Recruiting opens across HROE.</p><p class="move"><b>Your move</b>Find 4 to 8 people from different teams.</p></li>
+        <li class="drop" data-date="2026-12-07"><span class="when">DEC 7</span><span class="state"></span><h3>Crews locked</h3><p>Final crews are set and crew names go public.</p><p class="move"><b>Your move</b>Confirm your crew and pick your name.</p></li>
+        <li class="drop" data-date="2027-01-12"><span class="when">JAN 12</span><span class="state"></span><h3>Race day</h3><p>All crews learn the same HROE strategic commitment and open their first clue.</p><p class="move"><b>Your move</b>Show up at the starting line.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec cream" id="faq" aria-labelledby="faqH">
+    <div class="in faq">
+      <div class="sec-head" style="margin-bottom:0">
+        <p class="tag">Before you buckle in</p>
+        <h2 class="display" id="faqH">Quick answers.</h2>
+      </div>
+      <div class="list">
+        <details><summary>Who can race?</summary><p>Everyone in HROE. Any role, any team, any level. Crews mix people from different teams, so whatever you know from your daily work is exactly what a crew needs.</p></details>
+        <details><summary>What will we work on?</summary><p>Every crew works on the same HROE strategic commitment. Everyone finds out what it is on race day, January 12, along with the first clue.</p></details>
+        <details><summary>Do I need to know about the TV show?</summary><p>Not at all. We borrow the fun parts: crews, clues and a finish line. Everything you need to know is on this page.</p></details>
+        <details><summary>Can I bring my own crew?</summary><p>Yes, as long as it mixes teams. Build your own crew of 4 to 8 and submit it in the crew form. No crew yet? Pick that option in the form and we'll place you on one.</p></details>
+        <details><summary>How much time does it take?</summary><p>Seven weeks, one short leg at a time, with feedback along the way. The expected weekly time will be shared before crews lock in December.</p></details>
+        <details><summary>Does anyone get eliminated?</summary><p>No. Every crew finishes, every crew's ideas get reviewed, and every finisher gets recognized. The top three crews take the podium, and the winning crew earns a paid professional development course.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINALE -->
+  <section class="finale" id="in" aria-labelledby="inH">
+    <canvas id="confetti" aria-hidden="true"></canvas>
+    <div class="in">
+      <p class="tag" style="color:var(--gold)">The starting line is calling</p>
+      <h2 class="display" id="inH">Are you<br><span>in?</span></h2>
+      <p>Start with one person from another HROE team. That is enough to get your crew moving.</p>
+      <button class="btn btn-amber pledge" id="pledge" type="button">I'm in. Gig 'em!</button>
+      <p class="pledge-note" id="pledgeNote">RACE STARTS · JAN 12 2027</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="in">
+    <b>HROE Amazing Race · Race to Beyond</b>
+    <span>Texas A&amp;M Human Resources &amp; Organizational Effectiveness. Campaign concept. Crew-call dates, team names and rewards are pending final approval.</span>
+  </div>
+</footer>
+
+<div class="mobile-cta"><a class="btn btn-amber btn-sm" href="#crew">Build your crew →</a></div>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const KICKOFF = new Date('2027-01-12T09:00:00-06:00');
+
+  /* ---------- split-flap board ---------- */
+  function setFlaps(el, text, animate) {
+    const chars = [...text];
+    while (el.children.length < chars.length) { const s = document.createElement('span'); s.className = 'f'; el.appendChild(s); }
+    while (el.children.length > chars.length) el.lastChild.remove();
+    chars.forEach((c, i) => {
+      const cell = el.children[i];
+      if (cell.textContent === c) return;
+      cell.textContent = c;
+      cell.classList.toggle('sp', c === ' ');
+      if (animate && !reduce) { cell.classList.remove('flip'); void cell.offsetWidth; cell.classList.add('flip'); }
+    });
+  }
+  document.querySelectorAll('.clock .flaps[data-text]').forEach((el, i) => {
+    const target = el.dataset.text;
+    if (reduce) { setFlaps(el, target, false); return; }
+    // scramble in, then settle
+    const glyphs = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    setFlaps(el, target.replace(/[^ ]/g, '·'), false);
+    let t = 0;
+    const iv = setInterval(() => {
+      t++;
+      const s = [...target].map((c, j) => c === ' ' ? ' ' : (t > 6 + j + i * 2 ? c : glyphs[Math.floor(Math.random() * glyphs.length)])).join('');
+      setFlaps(el, s, true);
+      if (s === target) clearInterval(iv);
+    }, 70);
+  });
+
+  const statusWords = ['NOW RECRUITING', 'CREWS FORMING', 'STARTS JAN 12', 'NOW RECRUITING'];
+  let sw = 0;
+  setInterval(() => { sw = (sw + 1) % statusWords.length; setFlaps(document.getElementById('statusFlaps'), statusWords[sw].padEnd(14, ' '), true); }, 4200);
+
+  const pad = (n, l = 2) => String(Math.max(0, n)).padStart(l, '0');
+  function tick() {
+    let ms = KICKOFF - new Date();
+    if (ms < 0) ms = 0;
+    const d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24, m = Math.floor(ms / 6e4) % 60, s = Math.floor(ms / 1e3) % 60;
+    setFlaps(document.getElementById('cd-d'), pad(d, 3), true);
+    setFlaps(document.getElementById('cd-h'), pad(h), true);
+    setFlaps(document.getElementById('cd-m'), pad(m), true);
+    setFlaps(document.getElementById('cd-s'), pad(s), true);
+    document.getElementById('chipDays').textContent = d;
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* ---------- clue envelope ---------- */
+  const clues = [
+    ['Route Info', 'A team challenge for all of HROE.', 'Every crew takes on the same HROE strategic commitment, one leg at a time, for seven weeks.'],
+    ['Detour', 'Cross-functional on purpose.', "Build a crew of 4 to 8 people from different HROE teams and submit it in the crew form. No crew yet? Pick that option and we'll place you."],
+    ['Roadblock', 'Everyone brings ideas.', 'Share what you know, build on each other and keep your crew moving. Everyone has a part.'],
+    ['Pit Stop', 'Impact, reach and growth.', "Shape HROE's direction, build relationships across every corner of HROE, and grow skills you keep. The winning crew earns a paid professional development course."]
+  ];
+  const env = document.getElementById('env'), clueBtn = document.getElementById('clueBtn');
+  const hint = document.getElementById('envLabel'), countEl = document.getElementById('clueCount');
+  const steps = [...document.querySelectorAll('#clueSteps li')];
+  const T = ms => reduce ? 0 : ms;
+  let ci = 0, seen = 0, busy = false;
+  const read = new Set();
+  function fill() {
+    const [type, title, body] = clues[ci];
+    document.getElementById('clueType').textContent = type;
+    document.getElementById('clueNum').textContent = `${ci + 1} of 4`;
+    document.getElementById('clueTitle').textContent = title;
+    document.getElementById('clueBody').textContent = body;
+  }
+  function sync() {
+    read.add(ci);
+    seen = read.size;
+    const last = seen === 4;
+    countEl.textContent = `Clue ${ci + 1} of 4`;
+    clueBtn.textContent = last ? 'Build your crew →' : 'Next clue →';
+    hint.textContent = last ? 'ALL 4 CLUES READ · TAP TO READ AGAIN' : 'TAP THE ENVELOPE FOR THE NEXT CLUE';
+    env.setAttribute('aria-label', `Clue ${ci + 1} of 4 is out. Press for the next clue.`);
+    steps.forEach((li, i) => { li.classList.toggle('now', i === ci); li.classList.toggle('read', i !== ci && read.has(i)); li.setAttribute('aria-current', i === ci ? 'step' : 'false'); });
+  }
+  function show(next) {
+    if (busy) return;
+    busy = true;
+    if (!env.classList.contains('torn')) {
+      ci = next; fill();
+      env.classList.add('ripping', 'torn');
+      setTimeout(() => env.classList.remove('ripping'), T(300));
+      setTimeout(() => { env.classList.add('out'); sync(); }, T(520));
+      setTimeout(() => { busy = false; }, T(1200));
+      return;
+    }
+    env.classList.remove('out');
+    setTimeout(() => { ci = next; fill(); env.classList.add('out'); sync(); }, T(480));
+    setTimeout(() => { busy = false; }, T(1200));
+  }
+  const advance = () => show(env.classList.contains('torn') ? (ci + 1) % 4 : 0);
+  env.addEventListener('click', advance);
+  env.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); advance(); } });
+  steps.forEach((li, i) => { li.tabIndex = 0; li.addEventListener('click', () => show(i)); li.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(i); } }); });
+  clueBtn.addEventListener('click', () => {
+    if (seen === 4) document.getElementById('crew').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+    else advance();
+  });
+  fill();
+
+  /* ---------- destination board ---------- */
+  const destEl = document.getElementById('destFlaps');
+  const HIDDEN = '????????';
+  setFlaps(destEl, HIDDEN, false);
+  const destQuips = ["Still sealed. Every crew opens together on January 12.", 'Nice try. The shared strategic destination is safe.', 'No head starts. Go build your crew.', 'The best clue is still waiting at the starting line.'];
+  let dq = 0, spinning = false;
+  document.getElementById('destBtn').addEventListener('click', () => {
+    if (spinning) return; spinning = true;
+    const glyphs = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const steps = reduce ? 1 : 14;
+    let t = 0;
+    const iv = setInterval(() => {
+      t++;
+      if (t < steps) setFlaps(destEl, Array.from({ length: 8 }, () => glyphs[Math.floor(Math.random() * 26)]).join(''), true);
+      else if (t === steps) setFlaps(destEl, 'NICE TRY', true);
+      else if (t > steps + 14) { setFlaps(destEl, HIDDEN, true); clearInterval(iv); spinning = false; }
+    }, 70);
+    document.getElementById('destMsg').textContent = destQuips[dq++ % destQuips.length];
+  });
+
+  
+/* ---------- crew builder ---------- */
+  const areas = [
+    ['talent', 'Talent Acquisition', 'Knows what draws great people to Texas A&M, and what keeps them away.', 'Talent'],
+    ['benefits', 'Benefit & Retirement Services', 'Sees the whole career, from day one to the last paycheck.', 'Benefits'],
+    ['cisq', 'CISQ', 'Knows how the systems really work and where they slow people down.', 'CISQ'],
+    ['comp', 'Class & Comp', 'Brings the facts on pay, titles and what fair looks like.', 'Class & Comp'],
+    ['partners', 'Employee Relations', 'Hears the hard conversations. Knows where trust is won or lost.', 'Employee Relations'],
+    ['executive', 'Executive Searches', 'Knows what leaders look for and what makes them say yes.', 'Exec Search'],
+    ['od', 'Organizational Development', 'Knows how people learn, grow and step into the next role.', 'Org Dev'],
+    ['payroll', 'Payroll', 'Lives in the details that have to be right every single time.', 'Payroll'],
+    ['wellness', 'Wellness Team', 'Keeps the human in human resources.', 'Wellness'],
+    ['hrg', 'HR Hub Professionals', 'Closest to the units. Knows what people need before they ask.', 'HR Hub'],
+    ['data', 'Data & Strategy', 'Turns hunches into evidence and evidence into direction.', 'Data'],
+    ['comms', 'Communications', 'Makes a good idea land, in words people actually read.', 'Comms']
+  ];
+  const adj = ['Maroon', 'Howdy', "Gig 'Em", 'Aggieland', 'Kyle Field', 'Bell Tower', 'Fish Pond', 'Northgate', 'Midnight', 'Twelfth'];
+  const nouns = ['Compass', 'Express', 'Pathfinders', 'Trailblazers', 'Roadrunners', 'Navigators', 'Mavericks', 'Wranglers'];
+  let ai = Math.floor(Math.random() * adj.length), ni = Math.floor(Math.random() * nouns.length);
+  const picked = [];
+  try {
+    const saved = JSON.parse(localStorage.getItem('rtb-crew') || 'null');
+    if (saved && Array.isArray(saved.picked)) picked.push(...saved.picked.filter(k => areas.some(a => a[0] === k)).slice(0, 8));
+    if (saved && Number.isInteger(saved.ai)) ai = saved.ai % adj.length;
+    if (saved && Number.isInteger(saved.ni)) ni = saved.ni % nouns.length;
+  } catch (e) {}
+  const rolesEl = document.getElementById('roles'), seatsEl = document.getElementById('seats');
+  areas.forEach(([k, name, desc]) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'role'; b.dataset.k = k; b.setAttribute('aria-pressed', 'false');
+    b.innerHTML = `<em>HROE TEAM</em><b>${name}</b><small>${desc}</small>`;
+    b.addEventListener('click', () => {
+      const at = picked.indexOf(k);
+      if (at > -1) picked.splice(at, 1);
+      else if (picked.length < 8) picked.push(k);
+      renderCrew();
+    });
+    rolesEl.appendChild(b);
+  });
+  const area = k => areas.find(a => a[0] === k);
+  const crewName = () => picked.length ? `The ${adj[ai]} ${nouns[ni]}` : 'Tap where you work';
+  function saveCrew() {
+    try { localStorage.setItem('rtb-crew', JSON.stringify({ picked, ai, ni })); } catch (e) {}
+  }
+  function renderCrew() {
+    const n = picked.length;
+    [...rolesEl.children].forEach(b => {
+      const i = picked.indexOf(b.dataset.k);
+      b.setAttribute('aria-pressed', String(i > -1));
+      b.disabled = n >= 8 && i < 0;
+      b.querySelector('em').textContent = i === 0 ? "THAT'S YOU" : i > 0 ? 'ON THE CREW' : 'HROE TEAM';
+    });
+    seatsEl.innerHTML = '';
+    for (let i = 0; i < 8; i++) {
+      const s = document.createElement('div');
+      const k = picked[i];
+      s.className = 'seat' + (k ? ' full' : '') + (!k && i >= 4 ? ' opt' : '');
+      s.textContent = k ? (i === 0 ? 'You · ' : '') + area(k)[3] : (i < 4 ? `Seat ${i + 1}` : 'Optional');
+      seatsEl.appendChild(s);
+    }
+    const ready = n >= 4;
+    document.getElementById('mixLabel').textContent = `CREW MIX · ${n} ${n === 1 ? 'TEAM' : 'TEAMS'}`;
+    document.getElementById('mixFill').style.width = (n / 8 * 100) + '%';
+    document.getElementById('crewName').textContent = crewName();
+    const readyPill = document.getElementById('readyPill');
+    readyPill.classList.toggle('go', ready);
+    readyPill.textContent = ready ? `Race-ready · ${n} teams on board` : `Not ready yet · choose ${4 - n} more ${4 - n === 1 ? 'team' : 'teams'}`;
+    let tip;
+    if (!n) tip = 'Start with your own team. Then go find people who see the work differently.';
+    else if (n < 4) tip = `Add ${4 - n} more ${4 - n === 1 ? 'team' : 'teams'} to reach the starting line. Who would see this from a totally different angle?`;
+    else if (n < 8) tip = `Race-ready. ${n} teams means ${n} different ways of seeing the problem. Room for ${8 - n} more if you want them.`;
+    else tip = 'A full crew with every corner of HROE on board. That is the dream mix.';
+    document.getElementById('crewTip').textContent = tip;
+    document.getElementById('copyMsg').textContent = '';
+    saveCrew();
+  }
+  document.getElementById('shuffle').addEventListener('click', () => { ai = (ai + 1 + Math.floor(Math.random() * (adj.length - 1))) % adj.length; ni = (ni + 1 + Math.floor(Math.random() * (nouns.length - 1))) % nouns.length; if (!picked.length) picked.push(areas[Math.floor(Math.random() * areas.length)][0]); renderCrew(); });
+  document.getElementById('resetCrew').addEventListener('click', () => { picked.length = 0; ai = 0; ni = 0; renderCrew(); });
+  document.getElementById('copyCrew').addEventListener('click', async () => {
+    const need = areas.filter(a => !picked.includes(a[0])).slice(0, 3).map(a => a[1]);
+    const text = `Howdy! I'm building a cross-functional crew for HROE's Race to Beyond. Our crew name is ${picked.length ? crewName() : 'still TBD'}. We would love people from across HROE${need.length ? ', especially ' + need.join(', ') : ''}. The race starts January 12 and runs for seven weeks. Want to join us?`;
+    const msg = document.getElementById('copyMsg');
+    try { await navigator.clipboard.writeText(text); msg.textContent = 'COPIED · PASTE IT IN TEAMS OR EMAIL'; }
+    catch (e) { msg.textContent = 'COPY BLOCKED HERE · ' + text; }
+  });
+  renderCrew();
+
+  
+/* ---------- drop timeline ---------- */
+  (() => {
+    const items = [...document.querySelectorAll('#drops-list .drop')];
+    const ds = items.map(li => new Date(li.dataset.date + 'T00:00:00-06:00'));
+    const now = new Date();
+    let cur = 0; ds.forEach((d, i) => { if (now >= d) cur = i; });
+    items.forEach((li, i) => {
+      const st = li.querySelector('.state');
+      li.classList.toggle('live', i === cur); li.classList.toggle('done', i < cur);
+      st.textContent = i === cur ? 'HAPPENING NOW' : i < cur ? 'DONE' : i === cur + 1 ? 'UP NEXT' : 'COMING';
+    });
+    // position on track: equal segments between drops, interpolated by date
+    let p = cur;
+    if (cur < ds.length - 1) p += Math.min(1, (now - ds[cur]) / (ds[cur + 1] - ds[cur]));
+    const pct = Math.max(2, Math.min(100, (p + 0.5) / ds.length * 100));
+    document.getElementById('trackFill').style.width = pct + '%';
+    document.getElementById('today').style.left = pct + '%';
+  })();
+
+  /* ---------- pledge + confetti ---------- */
+  const pledge = document.getElementById('pledge'), note = document.getElementById('pledgeNote');
+  const cv = document.getElementById('confetti'), ctx = cv.getContext('2d');
+  function burst() {
+    if (reduce) return;
+    const r = cv.getBoundingClientRect(); cv.width = r.width * devicePixelRatio; cv.height = r.height * devicePixelRatio;
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    const cols = ['#ffc72c', '#ffffff', '#8a3b3b', '#ffe08a'];
+    const ps = Array.from({ length: 160 }, () => ({ x: r.width / 2, y: r.height * .55, vx: (Math.random() - .5) * 16, vy: -Math.random() * 15 - 4, s: 5 + Math.random() * 7, r: Math.random() * 6, vr: (Math.random() - .5) * .3, c: cols[Math.floor(Math.random() * cols.length)], check: Math.random() < .25 }));
+    let f = 0;
+    (function frame() {
+      ctx.clearRect(0, 0, r.width, r.height);
+      ps.forEach(p => {
+        p.vy += .38; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+        ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r);
+        if (p.check) { ctx.fillStyle = '#f4efef'; ctx.fillRect(-p.s, -p.s / 2, p.s * 2, p.s); ctx.fillStyle = '#1d1a1a'; ctx.fillRect(-p.s, -p.s / 2, p.s / 2, p.s / 2); ctx.fillRect(0, -p.s / 2, p.s / 2, p.s / 2); ctx.fillRect(-p.s / 2, 0, p.s / 2, p.s / 2); ctx.fillRect(p.s / 2, 0, p.s / 2, p.s / 2); }
+        else { ctx.fillStyle = p.c; ctx.fillRect(-p.s / 2, -p.s / 4, p.s, p.s / 2); }
+        ctx.restore();
+      });
+      if (++f < 150) requestAnimationFrame(frame); else ctx.clearRect(0, 0, r.width, r.height);
+    })();
+  }
+  function setPledged(on) {
+    pledge.classList.toggle('done', on);
+    pledge.textContent = on ? "You're in. See you at the start." : "I'm in. Gig 'em!";
+    note.textContent = on ? 'NOW GO RECRUIT YOUR CREW · RACE STARTS JAN 12' : 'RACE STARTS · JAN 12 2027';
+  }
+  let pledged = false;
+  try { pledged = localStorage.getItem('rtb-in') === '1'; } catch (e) {}
+  setPledged(pledged);
+  pledge.addEventListener('click', () => {
+    pledged = true;
+    try { localStorage.setItem('rtb-in', '1'); } catch (e) {}
+    setPledged(true); burst();
+  });
+})();
+</script>
+
+</body></html>

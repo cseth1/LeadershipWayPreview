@@ -1,0 +1,46 @@
+name: Publish Amazing Race without changing leadership pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - hroe-amazing-race/**
+      - .github/workflows/deploy-amazing-race.yml
+      - scripts/stage-amazing-race.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: copilot-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main' && vars.CONTENT_SYNC_ENABLED == 'false'
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}hroe-amazing-race/
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Preserve published files and add Amazing Race
+        run: python3 scripts/stage-amazing-race.py
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload unchanged leadership pages plus Amazing Race
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./_site
+          include-hidden-files: true
+
+      - name: Publish Amazing Race
+        id: deployment
+        uses: actions/deploy-pages@v5
