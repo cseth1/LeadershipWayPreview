@@ -1,0 +1,415 @@
+{
+  "site_url": "https://cseth1.github.io/LeadershipWayPreview/",
+  "baseline_source_commit": "65598d0a5b8fe135e5f625680d98723ccbb0ab95",
+  "baseline_run_id": 39696857568,
+  "files": {
+    ".nojekyll": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "academy.html": {
+      "sha256": "334cb811e43f282b6a21f012561f1948646d94e5cf95eafe857f02c9702c1d62",
+      "bytes": 375
+    },
+    "aggie-ux/about.html": {
+      "sha256": "f007032db86fcf6e0349fd271610d4336898fee900b79912f96271ce83ad1660",
+      "bytes": 33970
+    },
+    "aggie-ux/academy.html": {
+      "sha256": "3014319fac73895ea9ba1021357f0fc7b3a58fcadc0bb2a913e4442fb4ab08a6",
+      "bytes": 350
+    },
+    "aggie-ux/aggie-way.html": {
+      "sha256": "9eb8fe36018a6271ea11657de2296dfc7455ccef57e32aa93fd0119ba1f9cf38",
+      "bytes": 43593
+    },
+    "aggie-ux/assets/aggie-mentorship.jpg": {
+      "sha256": "670332e0141132b4e6ab39eb0bb97491cd22ea32701ab09f77b42b6d3b9c7364",
+      "bytes": 643533
+    },
+    "aggie-ux/assets/open-sans-0.ttf": {
+      "sha256": "8e325b2fc46c5f9ca4f8d9bde772b0f46fc7cbfbff6bc19c9570d2cd965b0954",
+      "bytes": 122536
+    },
+    "aggie-ux/assets/open-sans-0.woff2": {
+      "sha256": "441af0def989ebfdbd6ad85ffaed85e967ab21a05f1dd342f16259464a206dd0",
+      "bytes": 42964
+    },
+    "aggie-ux/assets/open-sans-1.woff2": {
+      "sha256": "441af0def989ebfdbd6ad85ffaed85e967ab21a05f1dd342f16259464a206dd0",
+      "bytes": 42964
+    },
+    "aggie-ux/assets/open-sans-2.woff2": {
+      "sha256": "441af0def989ebfdbd6ad85ffaed85e967ab21a05f1dd342f16259464a206dd0",
+      "bytes": 42964
+    },
+    "aggie-ux/assets/opensans-LICENSE.txt": {
+      "sha256": "fbbbcfef55318de350562559b671360de6d597112ecc5c73881b05092db89602",
+      "bytes": 4389
+    },
+    "aggie-ux/assets/oswald-0.ttf": {
+      "sha256": "a6ee8b91ec269a6f48631ba4ba1a3ab7e5039e5482dda8dc9672ee4620d7bd68",
+      "bytes": 86416
+    },
+    "aggie-ux/assets/oswald-0.woff2": {
+      "sha256": "9dde3797547520f762f4ba3a822d417a0872b962bc78753a7ee9f955382b6b85",
+      "bytes": 21412
+    },
+    "aggie-ux/assets/oswald-1.woff2": {
+      "sha256": "9dde3797547520f762f4ba3a822d417a0872b962bc78753a7ee9f955382b6b85",
+      "bytes": 21412
+    },
+    "aggie-ux/assets/oswald-2.woff2": {
+      "sha256": "9dde3797547520f762f4ba3a822d417a0872b962bc78753a7ee9f955382b6b85",
+      "bytes": 21412
+    },
+    "aggie-ux/assets/oswald-LICENSE.txt": {
+      "sha256": "0fd731a904b729a4e02eaf5e8ebd06783edd9abe400e8882760160230675b652",
+      "bytes": 4483
+    },
+    "aggie-ux/assets/tamu-logo-white.png": {
+      "sha256": "7406e590f9bf86fabd9652f602aea0ed9ed746837f4e9248356b9b62cbde70ee",
+      "bytes": 7787
+    },
+    "aggie-ux/assets/tamu-logo.png": {
+      "sha256": "36b101753c3128ab085b865b6b6cb3027f65b699ecb7e566f1e884f789f1fc4c",
+      "bytes": 14060
+    },
+    "aggie-ux/assets/work-sans-0.ttf": {
+      "sha256": "46244beb2ad4454613c6298244103df2fa327a6527910df5ff8b32c7165451a5",
+      "bytes": 116604
+    },
+    "aggie-ux/assets/work-sans-0.woff2": {
+      "sha256": "72cd8f67849cc714f3364eeeb378df9a49f4aff00e6a3640fad36c9c93a9b197",
+      "bytes": 50524
+    },
+    "aggie-ux/assets/work-sans-1.woff2": {
+      "sha256": "72cd8f67849cc714f3364eeeb378df9a49f4aff00e6a3640fad36c9c93a9b197",
+      "bytes": 50524
+    },
+    "aggie-ux/assets/work-sans-2.woff2": {
+      "sha256": "72cd8f67849cc714f3364eeeb378df9a49f4aff00e6a3640fad36c9c93a9b197",
+      "bytes": 50524
+    },
+    "aggie-ux/assets/worksans-LICENSE.txt": {
+      "sha256": "749aca05078664ce682dce1b1b10096ac397cb088c1a6df4e1bb56f0092a9272",
+      "bytes": 4396
+    },
+    "aggie-ux/campus-photo.jpg": {
+      "sha256": "9d64a5db5deb4e27264140edafe578c10ff75e84753ba53b59ac3728b2470ea2",
+      "bytes": 481002
+    },
+    "aggie-ux/data.js": {
+      "sha256": "67945764b2f549079546810a982fb6a493375eb787d14b2f46839463b1e9b169",
+      "bytes": 99773
+    },
+    "aggie-ux/develop-others.html": {
+      "sha256": "4e3a70dcff08188da6e02c4779abc228e5b254a7d8e7a167b37c09a0086f51ad",
+      "bytes": 38676
+    },
+    "aggie-ux/index.html": {
+      "sha256": "cfa7bcaa036b440e749913146aaad72dc20dce8b95820b1685b385ae9ed186b9",
+      "bytes": 38279
+    },
+    "aggie-ux/journey-map.js": {
+      "sha256": "02806891207dd93bd64283b69c55cbc453c697bb3b2baf925015ba43aad863da",
+      "bytes": 222
+    },
+    "aggie-ux/journey.html": {
+      "sha256": "49d8d4ed0bd879729a9c7dbe2ffbbf2458c60b6ce1f92b1d81bebe5f6c8aff5d",
+      "bytes": 39820
+    },
+    "aggie-ux/lead-across-am.html": {
+      "sha256": "2121119193a2424215a9f2297c4d3378052ef88c4fefda98b7a377f56ba7833d",
+      "bytes": 41235
+    },
+    "aggie-ux/lead-people.html": {
+      "sha256": "df3e78c47e5e85e69f8cce1a79b7b7e9d6678246e5ab49f4eb49695e4a4ace26",
+      "bytes": 40540
+    },
+    "aggie-ux/lead-teams.html": {
+      "sha256": "7bad225801a4e8260901742e1b9740431cd5c736e502ce0bd20face18c5507d1",
+      "bytes": 40836
+    },
+    "aggie-ux/lead-yourself.html": {
+      "sha256": "0e2e8ab92a5f7d3d9353b98bf0a1484f9ce3ec206d1581318c9a19e03fe75abf",
+      "bytes": 42986
+    },
+    "aggie-ux/leadership-opportunities.csv": {
+      "sha256": "1741c59ec76ffc52bb8e93cbe945da5a90d5c30f11246214b1c01472b31b6adb",
+      "bytes": 57827
+    },
+    "aggie-ux/leadership-resources.csv": {
+      "sha256": "657d36eed31fac860ef822767e3d9a0b63148dcdedcbb72c8e7dc342ff3c3e17",
+      "bytes": 42277
+    },
+    "aggie-ux/other-opportunities.html": {
+      "sha256": "3a8fe2063cb076cde47aa64f8c6753be18cf1a153c48d922b6f9d93254026030",
+      "bytes": 67744
+    },
+    "aggie-ux/practice.html": {
+      "sha256": "b6d1fc7a25fa2c084cf5fc34e38b29b611967c0b61f67fa364fcccd3198bed98",
+      "bytes": 350
+    },
+    "aggie-ux/professional-development.html": {
+      "sha256": "b699bc4bbd4c70c0cf3b08aa9dd13e7a01c436b2beed8018b25225ef1d950331",
+      "bytes": 45299
+    },
+    "aggie-ux/programs.html": {
+      "sha256": "eed9c03079fbbe224231d3f4061b06a627c67adad385e5ed3a87d71bd1fe10f9",
+      "bytes": 72986
+    },
+    "aggie-ux/start-at-am.html": {
+      "sha256": "ff7e40645ca9519854e355870399c4bc4eea4501dca7f040c9fae5184162133f",
+      "bytes": 37477
+    },
+    "aggie-ux/toolkit-data.js": {
+      "sha256": "2f59c023735ca437657c8109d76fa0f8986571ff0b65e179c1c43baee3de8dc2",
+      "bytes": 57811
+    },
+    "aggie-ux/toolkit.html": {
+      "sha256": "e44f537b680a44c05f50433f2a54889e39b2a04e29f7ba4eab750d0e75f5c328",
+      "bytes": 35058
+    },
+    "aggie-ux/tools-change-and-adaptability.html": {
+      "sha256": "e75d91fbb05c3e53c3e19c81110cbe9cc1cb2dc0ec4936e6341da054e4d55584",
+      "bytes": 37970
+    },
+    "aggie-ux/tools-coaching-and-mentoring.html": {
+      "sha256": "457ffedd2ba4beb6609146909f6093b711b4817a8efdb64aaf907aa3d76b2449",
+      "bytes": 38285
+    },
+    "aggie-ux/tools-communication-and-feedback.html": {
+      "sha256": "8adf0fef7a3b28171e94411222f20a23999da68c2ddb7227065934b944d31fb9",
+      "bytes": 42044
+    },
+    "aggie-ux/tools-digital-skills.html": {
+      "sha256": "424b61296db3475c4ef483c16874e70f9718dc0b674fecaf1eaca2ea4112953d",
+      "bytes": 36066
+    },
+    "aggie-ux/tools-new-supervisors.html": {
+      "sha256": "c482b6964f36c6839f8edf83e0bcdfb995af7c0a7ba37a1f47b7a23fd744f94d",
+      "bytes": 35259
+    },
+    "aggie-ux/tools-performance-and-accountability.html": {
+      "sha256": "11223cf47e83146f01d0029e6107ea987ab27b24e412b7d3ac5c828d2beee4e3",
+      "bytes": 35532
+    },
+    "aggie-ux/tools-professional-growth.html": {
+      "sha256": "0039c2d36821dac33e6396c803bbfb0a9f4f0f100fecbafc2a2bab116a7a67a1",
+      "bytes": 39285
+    },
+    "aggie-ux/tools-trust-and-teamwork.html": {
+      "sha256": "9d19f635a2977ce53f1c396f1e294da55643cfd7f37d8eb9564eb891c6274615",
+      "bytes": 47192
+    },
+    "aggie-way.css": {
+      "sha256": "2fd97bc52926ba6a534e19f39961aac1ea7f75443d40a2eec6f58b00ad63cbe9",
+      "bytes": 9180
+    },
+    "aggie-way.html": {
+      "sha256": "cc2afa741190be5208bc6b40dab30ea8ed6b9abd6e0411ca8b2bc02e261af1f7",
+      "bytes": 17227
+    },
+    "app.js": {
+      "sha256": "43739ad634e94a0cc4ae05fe59cbaec0d8768d9598a7c74d6f018b28b471516a",
+      "bytes": 3861
+    },
+    "assets/aggie-mentorship.jpg": {
+      "sha256": "670332e0141132b4e6ab39eb0bb97491cd22ea32701ab09f77b42b6d3b9c7364",
+      "bytes": 643533
+    },
+    "assets/open-sans-0.ttf": {
+      "sha256": "8e325b2fc46c5f9ca4f8d9bde772b0f46fc7cbfbff6bc19c9570d2cd965b0954",
+      "bytes": 122536
+    },
+    "assets/open-sans-0.woff2": {
+      "sha256": "441af0def989ebfdbd6ad85ffaed85e967ab21a05f1dd342f16259464a206dd0",
+      "bytes": 42964
+    },
+    "assets/open-sans-1.woff2": {
+      "sha256": "441af0def989ebfdbd6ad85ffaed85e967ab21a05f1dd342f16259464a206dd0",
+      "bytes": 42964
+    },
+    "assets/open-sans-2.woff2": {
+      "sha256": "441af0def989ebfdbd6ad85ffaed85e967ab21a05f1dd342f16259464a206dd0",
+      "bytes": 42964
+    },
+    "assets/opensans-LICENSE.txt": {
+      "sha256": "fbbbcfef55318de350562559b671360de6d597112ecc5c73881b05092db89602",
+      "bytes": 4389
+    },
+    "assets/oswald-0.ttf": {
+      "sha256": "a6ee8b91ec269a6f48631ba4ba1a3ab7e5039e5482dda8dc9672ee4620d7bd68",
+      "bytes": 86416
+    },
+    "assets/oswald-0.woff2": {
+      "sha256": "9dde3797547520f762f4ba3a822d417a0872b962bc78753a7ee9f955382b6b85",
+      "bytes": 21412
+    },
+    "assets/oswald-1.woff2": {
+      "sha256": "9dde3797547520f762f4ba3a822d417a0872b962bc78753a7ee9f955382b6b85",
+      "bytes": 21412
+    },
+    "assets/oswald-2.woff2": {
+      "sha256": "9dde3797547520f762f4ba3a822d417a0872b962bc78753a7ee9f955382b6b85",
+      "bytes": 21412
+    },
+    "assets/oswald-LICENSE.txt": {
+      "sha256": "0fd731a904b729a4e02eaf5e8ebd06783edd9abe400e8882760160230675b652",
+      "bytes": 4483
+    },
+    "assets/tamu-logo-white.png": {
+      "sha256": "7406e590f9bf86fabd9652f602aea0ed9ed746837f4e9248356b9b62cbde70ee",
+      "bytes": 7787
+    },
+    "assets/tamu-logo.png": {
+      "sha256": "36b101753c3128ab085b865b6b6cb3027f65b699ecb7e566f1e884f789f1fc4c",
+      "bytes": 14060
+    },
+    "assets/work-sans-0.ttf": {
+      "sha256": "46244beb2ad4454613c6298244103df2fa327a6527910df5ff8b32c7165451a5",
+      "bytes": 116604
+    },
+    "assets/work-sans-0.woff2": {
+      "sha256": "72cd8f67849cc714f3364eeeb378df9a49f4aff00e6a3640fad36c9c93a9b197",
+      "bytes": 50524
+    },
+    "assets/work-sans-1.woff2": {
+      "sha256": "72cd8f67849cc714f3364eeeb378df9a49f4aff00e6a3640fad36c9c93a9b197",
+      "bytes": 50524
+    },
+    "assets/work-sans-2.woff2": {
+      "sha256": "72cd8f67849cc714f3364eeeb378df9a49f4aff00e6a3640fad36c9c93a9b197",
+      "bytes": 50524
+    },
+    "assets/worksans-LICENSE.txt": {
+      "sha256": "749aca05078664ce682dce1b1b10096ac397cb088c1a6df4e1bb56f0092a9272",
+      "bytes": 4396
+    },
+    "campus-photo.jpg": {
+      "sha256": "9d64a5db5deb4e27264140edafe578c10ff75e84753ba53b59ac3728b2470ea2",
+      "bytes": 481002
+    },
+    "common.js": {
+      "sha256": "fe524b7c5a5cb02a4b3021c9ac314b6a6114bb670e347f82d8936fea59768987",
+      "bytes": 6659
+    },
+    "content-sync.json": {
+      "sha256": "b5bbf581a4034293ea112d3f04a3334ff3b6849358b228773079bf6b5bf677af",
+      "bytes": 242
+    },
+    "courses.js": {
+      "sha256": "2449b4fb7a926586a889c614627b539e1e958fab4b400bba56cf9d4ba6b7a68f",
+      "bytes": 2669
+    },
+    "data.js": {
+      "sha256": "67945764b2f549079546810a982fb6a493375eb787d14b2f46839463b1e9b169",
+      "bytes": 99773
+    },
+    "develop-others.html": {
+      "sha256": "0e9bd3ca476bac6d8cc529454ce2cd9ac3a6a2219150a4befd8e16e8c8c89357",
+      "bytes": 14170
+    },
+    "discovery.js": {
+      "sha256": "685c84e295c1d65a92db534d11a79945583ab685ffd7ab200bb0cc14276e3227",
+      "bytes": 2323
+    },
+    "experience.css": {
+      "sha256": "12182e52a57b3f397faa7f8e63e86f0106dd9994578cb5f0bb7d0ea98165c7ae",
+      "bytes": 15225
+    },
+    "fonts.css": {
+      "sha256": "bd88e16da1801fdd2fc777d986ad02f3dfc51b43b047868403d1a25cc73ccbdc",
+      "bytes": 3197
+    },
+    "hub.css": {
+      "sha256": "581ebd523799d22f87087eac8264fd1fb1c73ac2e5fd6ea3ba4441a9e7c3ab22",
+      "bytes": 15834
+    },
+    "index.html": {
+      "sha256": "bd5ec9ac7a08fdab014c98247bbaf36c5dfa352f51851d18ce53e231ba3cbabc",
+      "bytes": 12683
+    },
+    "journey-map.js": {
+      "sha256": "02806891207dd93bd64283b69c55cbc453c697bb3b2baf925015ba43aad863da",
+      "bytes": 222
+    },
+    "journey.html": {
+      "sha256": "2c031a2f31f70591768c7dce579c2f4f9726871119e83d1304b3da0a3b3ccffd",
+      "bytes": 12040
+    },
+    "journey.js": {
+      "sha256": "62ac17e1de5cfd5de8c7f5a293376561267f99aede4d00620320f16ff48fe104",
+      "bytes": 202
+    },
+    "lead-across-am.html": {
+      "sha256": "36ecaf172129283d5d9129c2d7b058c3c47723f66a44cb2fc7867238a0bec3fa",
+      "bytes": 14350
+    },
+    "lead-people.html": {
+      "sha256": "ff589a72f1e6252bfb86943b412b8d576a806d4eb4836a5af734b11bdabf46b0",
+      "bytes": 14682
+    },
+    "lead-teams.html": {
+      "sha256": "b46fa7d2b552abd5af6a0f30bc9264f2d356a9efc0a31a53fae2427b4bb52e88",
+      "bytes": 14536
+    },
+    "lead-yourself.html": {
+      "sha256": "2f060e7875de5d662ad93e4c7b531b49b8c397d75eec71b146de5840c25cffcb",
+      "bytes": 13363
+    },
+    "leadership-opportunities.csv": {
+      "sha256": "1741c59ec76ffc52bb8e93cbe945da5a90d5c30f11246214b1c01472b31b6adb",
+      "bytes": 57827
+    },
+    "leadership-resources.csv": {
+      "sha256": "657d36eed31fac860ef822767e3d9a0b63148dcdedcbb72c8e7dc342ff3c3e17",
+      "bytes": 42277
+    },
+    "practice.html": {
+      "sha256": "98e8822ea793ed7d1abc1bea9b70231803af443871f9bea9e4f8eba1e0510f45",
+      "bytes": 905
+    },
+    "professional-development.html": {
+      "sha256": "87aa659ffba2d10696990029cdee8d5502643355f61914afd66241e9c7edfdf1",
+      "bytes": 10397
+    },
+    "programs.html": {
+      "sha256": "dfa0435e2c996a70d6b511eb7961edf408dec1642682a896d13b18cc340259d8",
+      "bytes": 12916
+    },
+    "resource-hub.css": {
+      "sha256": "289434ee1e875ca4d787239b00cc1c072d7b0730d251bf3b3633fe770e70ec61",
+      "bytes": 4013
+    },
+    "route-redirect.js": {
+      "sha256": "d3bd4258876f7ccf95dfbbcffd462f9794bc8d10c3128df36a97ea7cb53d8fea",
+      "bytes": 702
+    },
+    "start-at-am.html": {
+      "sha256": "ced8901ddfccd11d5952d49e46a2e0f76b563ae998d13b2dcd41806cd94f3a97",
+      "bytes": 12549
+    },
+    "style.css": {
+      "sha256": "0fc4049785365d34c75c73d094f8637c778413feda6bee56938d4b460f76fb4a",
+      "bytes": 19961
+    },
+    "toolkit-data.js": {
+      "sha256": "2f59c023735ca437657c8109d76fa0f8986571ff0b65e179c1c43baee3de8dc2",
+      "bytes": 57811
+    },
+    "toolkit.html": {
+      "sha256": "66817e3a485c5870656438f0ee4f4c8410aa3e8ac73cee0c7194a1f17caaf856",
+      "bytes": 11264
+    },
+    "toolkit.js": {
+      "sha256": "37f269918903d7763de79edbd320d6b4e7b1d9c635f2fda579f640679689619a",
+      "bytes": 4100
+    },
+    "versions/version-switcher.css": {
+      "sha256": "7220522e954ff4fadbec92b11b3099aaea6b05c317ea5fe6d7ec244d862bc86c",
+      "bytes": 2254
+    }
+  }
+}

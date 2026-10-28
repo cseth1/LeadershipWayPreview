@@ -1,0 +1,46 @@
+name: Publish Copilot without changing leadership pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - copilot-lab/**
+      - .github/workflows/deploy-copilot.yml
+      - .github/copilot-preservation.json
+      - scripts/stage-copilot.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}copilot-lab/
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Preserve published files and add Copilot
+        run: python3 scripts/stage-copilot.py
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload unchanged leadership pages plus Copilot
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./_site
+
+      - name: Publish Copilot
+        id: deployment
+        uses: actions/deploy-pages@v5
