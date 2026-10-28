@@ -45,6 +45,10 @@ jobs:
                   if not member.isfile() or name not in expected or name in captured:
                       raise ValueError(f'Unexpected archive entry: {name}')
                   captured[name] = archive.extractfile(member).read()
+          # The first uploader omitted the empty hidden Pages marker.
+          # Restore it only if it matches the fingerprint captured from the live site.
+          if '.nojekyll' not in captured and expected.get('.nojekyll') == digest(b''):
+              captured['.nojekyll'] = b''
           assert {name: digest(data) for name, data in captured.items()} == expected
           for name, data in captured.items():
               target = Path('_site') / name
@@ -56,5 +60,6 @@ jobs:
       - uses: actions/upload-pages-artifact@v5
         with:
           path: ./_site
+          include-hidden-files: true
       - uses: actions/deploy-pages@v5
         id: deployment
