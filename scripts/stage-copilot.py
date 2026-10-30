@@ -33,7 +33,11 @@ def main():
     parser.add_argument("--verify-live", action="store_true")
     args = parser.parse_args()
     manifest = json.loads(MANIFEST.read_text())
-    files = manifest["files"]
+    files = dict(manifest["files"])
+    # Include race sources so concurrent first-time deployments need no live teaser yet.
+    race_files = {p.relative_to(ROOT).as_posix(): p.read_bytes()
+                  for p in (ROOT / "hroe-amazing-race").rglob("*") if p.is_file()}
+    race_fingerprints = {name: fingerprint(data) for name, data in race_files.items()}
     source = (ROOT / COPILOT).read_bytes()
     if not source or b"HROE Copilot Lab" not in source:
         raise ValueError("Expected the HROE Copilot Lab HTML source")
@@ -44,6 +48,7 @@ def main():
     expected = dict(files)
     if args.verify_live:
         expected[COPILOT] = fingerprint(source)
+        expected.update(race_fingerprints)
 
     def fetch(item):
         name, digest = item
@@ -72,10 +77,14 @@ def main():
         destination = staged / COPILOT
         destination.parent.mkdir(parents=True, exist_ok=True)
         destination.write_bytes(source)
+        for name, data in race_files.items():
+            destination = staged / name
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(data)
         actual = {p.relative_to(staged).as_posix(): fingerprint(p.read_bytes())
                   for p in staged.rglob("*") if p.is_file()}
-        if actual != {**files, COPILOT: fingerprint(source)}:
-            raise ValueError("Staged output changes files outside Copilot")
+        if actual != {**files, COPILOT: fingerprint(source), **race_fingerprints}:
+            raise ValueError("Staged output changes files outside Copilot and Amazing Race")
         shutil.move(str(staged), str(output))
     print(f"Preserved {len(files)} published files byte-for-byte; added {COPILOT}")
 

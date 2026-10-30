@@ -52,6 +52,8 @@ def build(workbook=None):
         shutil.rmtree(OUTPUT)
     shutil.copytree(ORIGINAL, OUTPUT)
     shutil.copytree(AGGIE_UX, OUTPUT / "aggie-ux")
+    for standalone in ("copilot-lab", "hroe-amazing-race"):
+        shutil.copytree(ROOT / standalone, OUTPUT / standalone)
     (OUTPUT / "versions").mkdir()
     shutil.copyfile(ROOT / "versions" / "version-switcher.css", OUTPUT / "versions" / "version-switcher.css")
     (OUTPUT / ".nojekyll").touch()

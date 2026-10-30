@@ -36,6 +36,9 @@ def main():
     files = dict(manifest["files"])
     files["copilot-lab/index.html"] = fingerprint((ROOT / "copilot-lab/index.html").read_bytes())
     source = (ROOT / RACE).read_bytes()
+    race_files = {p.relative_to(ROOT).as_posix(): p.read_bytes()
+                  for p in (ROOT / "hroe-amazing-race").rglob("*") if p.is_file()}
+    race_fingerprints = {name: fingerprint(data) for name, data in race_files.items()}
     if not source or b"HROE Amazing Race" not in source:
         raise ValueError("Expected the HROE Amazing Race HTML source")
     for name in files:
@@ -44,7 +47,7 @@ def main():
             raise ValueError(f"Invalid preserved path: {name}")
     expected = dict(files)
     if args.verify_live:
-        expected[RACE] = fingerprint(source)
+        expected.update(race_fingerprints)
 
     def fetch(item):
         name, digest = item
@@ -70,15 +73,16 @@ def main():
             target = staged / name
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(data)
-        destination = staged / RACE
-        destination.parent.mkdir(parents=True, exist_ok=True)
-        destination.write_bytes(source)
+        for name, data in race_files.items():
+            destination = staged / name
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(data)
         actual = {p.relative_to(staged).as_posix(): fingerprint(p.read_bytes())
                   for p in staged.rglob("*") if p.is_file()}
-        if actual != {**files, RACE: fingerprint(source)}:
+        if actual != {**files, **race_fingerprints}:
             raise ValueError("Staged output changes files outside Amazing Race")
         shutil.move(str(staged), str(output))
-    print(f"Preserved {len(files)} published files byte-for-byte; added {RACE}")
+    print(f"Preserved {len(files)} published files byte-for-byte; added {len(race_files)} Amazing Race files")
 
 
 if __name__ == "__main__":

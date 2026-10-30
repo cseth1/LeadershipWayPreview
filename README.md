@@ -5,6 +5,13 @@ One GitHub Pages website contains both design versions:
 - **Version 1: Original** — https://cseth1.github.io/LeadershipWayPreview/
 - **Version 2: Aggie UX** — https://cseth1.github.io/LeadershipWayPreview/aggie-ux/
 
+## HROE Amazing Race
+
+- **Full race preview:** https://cseth1.github.io/LeadershipWayPreview/hroe-amazing-race/
+- **Your First Clue teaser:** https://cseth1.github.io/LeadershipWayPreview/hroe-amazing-race/first-clue/
+
+The teaser is a standalone interactive envelope page for Touch Point Tuesday. Its reveal uses the exact Beyond 150 Imperative 11 wording: “Cultivate a vision-driven and thriving workplace.” All race pages are included in Amazing Race deployments and preserved during Copilot updates.
+
 Use the **Website versions** bar at the top of either version to switch. The current version is highlighted. When both versions have the same page, switching keeps you on that page; otherwise it opens the other version's homepage. Existing Version 1 URLs continue to work.
 
 ## Source versions
