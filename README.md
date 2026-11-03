@@ -31,6 +31,10 @@ python3 -m http.server 8000 --directory _site
 
 Open http://localhost:8000/ for the original and http://localhost:8000/aggie-ux/ for Aggie UX. Building requires only Python's standard library.
 
+Both `toolkit.html` pages are rendered as complete spreadsheet-style tables during the build by `scripts/resource_sheet.py`. All published resources are included, with direct resource links and the existing CSV download. The shared table stylesheet is `versions/resource-sheet.css`. Tables are generated after optional workbook updates so changes to the resource catalog appear in both editions. The archived source layouts and their workbook bindings are preserved; preview the generated `_site/` pages to review the table layout.
+
+While workbook publishing is paused (`CONTENT_SYNC_ENABLED=false`), the toolkit workflow uses `scripts/stage-toolkit.py` to verify and preserve the published files, then changes only the two toolkit pages and their stylesheet. After a toolkit deployment, refresh those three fingerprints in `.github/copilot-preservation.json` from the verified release so later Copilot and Amazing Race deployments preserve the new pages.
+
 The existing GitHub Pages workflow builds and deploys `_site/` whenever `main` changes. To update the Aggie UX design, replace the website files inside `aggie-ux/` and update its release record; leave the Version 1 folder intact. The separate ChatGPT-hosted site is not changed by this repository.
 
 ## Edit website content in Excel

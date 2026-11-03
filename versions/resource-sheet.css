@@ -1,0 +1,78 @@
+/* Only the two Tools & Resources pages load these spreadsheet styles. */
+.resource-sheet-page {
+  --sheet-maroon: #500000;
+  --sheet-line: #cbd0d4;
+  color: #252525;
+  background: #fff;
+  font-family: "Open Sans", Arial, sans-serif;
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 32px 32px 40px;
+  box-sizing: border-box;
+}
+.resource-sheet-page * { box-sizing: border-box; }
+.resource-sheet-page .sheet-heading h1 {
+  color: var(--sheet-maroon);
+  font-family: inherit;
+  font-size: clamp(26px, 2.5vw, 36px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.5px;
+  text-transform: none;
+  margin: 0 0 10px;
+}
+.resource-sheet-page .sheet-heading p { margin: 0 0 24px; font-size: 15px; line-height: 1.6; }
+.resource-sheet-page .sheet-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 10px; }
+.resource-sheet-page .sheet-toolbar p { margin: 0; font-size: 14px; }
+.resource-sheet-page .sheet-toolbar span { color: #555; margin-left: 14px; }
+.resource-sheet-page .sheet-download { color: var(--sheet-maroon); font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.resource-sheet-page .sheet-help { font-size: 12px; color: #555; margin: 0 0 8px; }
+.resource-sheet-page .sheet-scroll { overflow: auto; max-height: 72vh; border: 1px solid #a9afb5; overscroll-behavior: contain; background: #fff; }
+.resource-sheet-page .resource-sheet { border-collapse: separate; border-spacing: 0; table-layout: fixed; width: 100%; min-width: 1580px; margin: 0; font-size: 13px; line-height: 1.55; color: #252525; }
+.resource-sheet-page .resource-sheet thead { display: table-header-group; visibility: visible; }
+.resource-sheet-page .resource-sheet tbody { display: table-row-group; }
+.resource-sheet-page .resource-sheet tr { display: table-row; visibility: visible; }
+.resource-sheet .col-number { width: 44px; }
+.resource-sheet .col-resource { width: 250px; }
+.resource-sheet .col-description { width: 320px; }
+.resource-sheet .col-topic { width: 175px; }
+.resource-sheet .col-format { width: 140px; }
+.resource-sheet .col-audience { width: 185px; }
+.resource-sheet .col-provider { width: 180px; }
+.resource-sheet .col-access { width: 245px; }
+.resource-sheet-page .resource-sheet th,
+.resource-sheet-page .resource-sheet td { display: table-cell; visibility: visible; padding: 12px 14px; border: 0; border-right: 1px solid var(--sheet-line); border-bottom: 1px solid var(--sheet-line); text-align: left; vertical-align: top; overflow-wrap: break-word; background: #fff; }
+.resource-sheet-page .resource-sheet td::before { display: none; }
+.resource-sheet-page .resource-sheet thead th { position: sticky; top: 0; z-index: 3; background: #eceff1; color: #252525; font-family: inherit; font-size: 13px; font-weight: 700; text-transform: none; letter-spacing: normal; box-shadow: 0 1px 0 #a9afb5; }
+.resource-sheet-page .resource-sheet tbody th { font-family: inherit; font-size: inherit; font-weight: 600; text-transform: none; letter-spacing: normal; }
+.resource-sheet-page .resource-sheet tbody tr:nth-child(even) > * { background: #f6f7f8; }
+.resource-sheet-page .resource-sheet tbody tr:hover > * { background: #f1e9e9; }
+.resource-sheet-page .resource-sheet .sheet-number { position: sticky; left: 0; z-index: 1; text-align: center; padding: 12px 6px; color: #5a5a5a; background: #f0f2f3; font-variant-numeric: tabular-nums; }
+.resource-sheet-page .resource-sheet .sheet-resource { position: sticky; left: 44px; z-index: 2; border-right-color: #a9afb5; }
+.resource-sheet-page .resource-sheet thead .sheet-number,
+.resource-sheet-page .resource-sheet thead .sheet-resource { z-index: 4; background: #e6e9ec; }
+.resource-sheet-page .resource-sheet a { color: var(--sheet-maroon); text-decoration: underline; text-underline-offset: 3px; }
+.resource-sheet-page .resource-sheet a:hover { text-decoration-thickness: 2px; }
+.resource-sheet-page :focus-visible { outline: 3px solid #8b5e00; outline-offset: -3px; }
+.resource-sheet-page .sheet-note { font-size: 12px; line-height: 1.6; color: #555; margin: 14px 0 0; max-width: 1000px; }
+.resource-sheet-page .sheet-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 640px) {
+  .resource-sheet-page { padding: 24px 16px 32px; }
+  .resource-sheet-page .sheet-toolbar { align-items: flex-start; flex-direction: column; }
+  .resource-sheet-page .sheet-toolbar span { margin-left: 8px; }
+  .resource-sheet-page .resource-sheet { min-width: 1480px; }
+  .resource-sheet .col-resource { width: 210px; }
+  .resource-sheet-page .resource-sheet .sheet-resource { position: static; }
+}
+@media print {
+  .resource-sheet-page { padding: 0; max-width: none; }
+  .resource-sheet-page .sheet-scroll { max-height: none; overflow: visible; border: 0; }
+  .resource-sheet-page .resource-sheet { min-width: 0; width: 100%; table-layout: auto; font-size: 8pt; }
+  .resource-sheet-page .resource-sheet col { width: auto; }
+  .resource-sheet-page .resource-sheet th,
+  .resource-sheet-page .resource-sheet td { position: static !important; padding: 5px; }
+  .resource-sheet-page .resource-sheet tr { break-inside: avoid; }
+  .resource-sheet-page .sheet-help,
+  .resource-sheet-page .sheet-download { display: none; }
+}

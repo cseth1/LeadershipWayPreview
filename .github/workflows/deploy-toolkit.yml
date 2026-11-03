@@ -1,0 +1,43 @@
+name: Publish resource spreadsheets while preserving other pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/resource_sheet.py
+      - scripts/stage-toolkit.py
+      - versions/resource-sheet.css
+      - .github/workflows/deploy-toolkit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: copilot-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main' && vars.CONTENT_SYNC_ENABLED == 'false'
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}toolkit.html
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Stage approved toolkit changes and preserve published files
+        run: python3 scripts/stage-toolkit.py
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v6
+      - name: Upload complete site with only toolkit changes
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./_site
+          include-hidden-files: true
+      - name: Publish resource spreadsheets
+        id: deployment
+        uses: actions/deploy-pages@v5

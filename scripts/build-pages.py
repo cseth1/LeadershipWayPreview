@@ -56,6 +56,7 @@ def build(workbook=None):
         shutil.copytree(ROOT / standalone, OUTPUT / standalone)
     (OUTPUT / "versions").mkdir()
     shutil.copyfile(ROOT / "versions" / "version-switcher.css", OUTPUT / "versions" / "version-switcher.css")
+    shutil.copyfile(ROOT / "versions" / "resource-sheet.css", OUTPUT / "versions" / "resource-sheet.css")
     (OUTPUT / ".nojekyll").touch()
 
     count = 0
@@ -87,6 +88,8 @@ def build(workbook=None):
             'builtAt': datetime.now(timezone.utc).isoformat(),
             **counts,
         }, indent=2) + '\n')
+    from resource_sheet import render_resource_sheets
+    render_resource_sheets(OUTPUT)
 
 
 if __name__ == "__main__":

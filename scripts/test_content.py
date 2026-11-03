@@ -6,6 +6,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 from lxml import html
 import content_workbook as content
 
@@ -33,24 +34,32 @@ class ContentTests(unittest.TestCase):
 
     def test_added_changed_hidden_and_reclassified_records(self):
         with tempfile.TemporaryDirectory() as temp:
-            builder.OUTPUT=Path(temp)/'site';builder.build()
+            builder.OUTPUT=Path(temp)/'site'
             first=self.data['Programs and Courses'][0]
             first.update(title='Updated <course> & title',description='New description from workbook',duration='12 hours',url='https://example.edu/updated')
             new=copy.deepcopy(first);new.update(id='E999',title='New workbook course',owner='New provider',area='New area',journeyStages=['Start at A&M'])
             self.data['Programs and Courses'].append(new)
             self.data['Programs and Courses'][1]['publish']='No'
-            self.data['Resources'][0].update(title='Updated toolkit title',topic='Digital skills')
+            self.data['Resources'][0].update(title='Updated <toolkit> & title',topic='Digital skills')
             self.data['Resources'][1]['publish']='No'
             newtool=copy.deepcopy(self.data['Resources'][0]);newtool.update(id='T999',title='New workbook toolkit')
             self.data['Resources'].append(newtool)
             label=next(r for r in self.data['Page Text'] if r['Version']=='Aggie UX' and r['Page']=='index.html' and r['Element']=='h1')
             label['Text']='Updated main heading <test>'
-            content.render_content(builder.OUTPUT,self.data)
+            with patch.object(content, 'read_xlsx', return_value=self.data):
+                builder.build(content.ROOT/'content/Leadership_Website_Content.xlsx')
             for prefix in ['', 'aggie-ux/']:
                 js=(builder.OUTPUT/prefix/'data.js').read_text();tool=(builder.OUTPUT/prefix/'toolkit-data.js').read_text()
                 self.assertIn('E999',js);self.assertNotIn('"id": "E002"',js);self.assertIn('T999',tool);self.assertNotIn('"id": "T002"',tool)
                 self.assertIn('12 hours',js)
                 self.assertIn('E999',(builder.OUTPUT/prefix/'leadership-opportunities.csv').read_text())
+                sheet=html.fromstring((builder.OUTPUT/prefix/'toolkit.html').read_text())
+                self.assertEqual(len(sheet.xpath('//tbody/tr')),52)
+                self.assertEqual(sheet.xpath('//*[@id="t001"]/th/a')[0].text,'Updated <toolkit> & title')
+                self.assertFalse(sheet.xpath('//toolkit'))
+                self.assertFalse(sheet.xpath('//*[@id="t002"]'))
+                self.assertTrue(sheet.xpath('//*[@id="t999"]'))
+                self.assertFalse(sheet.xpath('//main//select | //main//details'))
             programs=html.fromstring((builder.OUTPUT/'aggie-ux/programs.html').read_text())
             self.assertEqual(len(programs.xpath('//*[@id="e999"]')),1)
             self.assertEqual(programs.xpath('//*[@id="e001"]//span[@class="ns-h3"]')[0].text,'Updated <course> & title')
@@ -74,13 +83,18 @@ class ContentTests(unittest.TestCase):
 
     def test_baseline_catalog_and_internal_anchors(self):
         with tempfile.TemporaryDirectory() as temp:
-            builder.OUTPUT=Path(temp)/'site';builder.build();content.render_content(builder.OUTPUT,self.data)
+            builder.OUTPUT=Path(temp)/'site'
+            with patch.object(content, 'read_xlsx', return_value=self.data):
+                builder.build(content.ROOT/'content/Leadership_Website_Content.xlsx')
             for filename in ['programs.html','other-opportunities.html','professional-development.html']:
                 source=html.fromstring((content.ROOT/'aggie-ux'/filename).read_text())
                 actual=html.fromstring((builder.OUTPUT/'aggie-ux'/filename).read_text())
                 before={e.get('id') for e in source.xpath('//details')};after={e.get('id') for e in actual.xpath('//details')}
                 self.assertEqual(before,after,filename)
-            docs={str(p.relative_to(builder.OUTPUT)):html.fromstring(p.read_text()) for p in builder.OUTPUT.rglob('*.html')}
+            # Workbook publishing owns these two editions. Standalone sites may
+            # use JavaScript routes (for example Copilot's #home), not element IDs.
+            pages=[p for folder in [builder.OUTPUT,builder.OUTPUT/'aggie-ux'] for p in folder.glob('*.html')]
+            docs={str(p.relative_to(builder.OUTPUT)):html.fromstring(p.read_text()) for p in pages}
             from urllib.parse import urlsplit,unquote
             import posixpath
             for file,doc in docs.items():
