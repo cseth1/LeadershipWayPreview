@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Add Amazing Race to exact copies of the published site; never rebuild leadership."""
+"""Add Great Race to exact copies of the published site; never rebuild leadership."""
 
 import argparse
 from concurrent.futures import ThreadPoolExecutor
@@ -39,8 +39,8 @@ def main():
     race_files = {p.relative_to(ROOT).as_posix(): p.read_bytes()
                   for p in (ROOT / "hroe-amazing-race").rglob("*") if p.is_file()}
     race_fingerprints = {name: fingerprint(data) for name, data in race_files.items()}
-    if not source or b"HROE Amazing Race" not in source:
-        raise ValueError("Expected the HROE Amazing Race HTML source")
+    if not source or b"HROE Great Race" not in source:
+        raise ValueError("Expected the HROE Great Race HTML source")
     for name in files:
         path = PurePosixPath(name)
         if path.is_absolute() or ".." in path.parts or name.startswith("hroe-amazing-race/"):
@@ -60,7 +60,7 @@ def main():
     with ThreadPoolExecutor(max_workers=8) as executor:
         captured = dict(executor.map(fetch, expected.items()))
     if args.verify_live:
-        print(f"Verified Amazing Race and all {len(files)} preserved published files")
+        print(f"Verified Great Race and all {len(files)} preserved published files")
         return
 
     output = ROOT / "_site"
@@ -80,9 +80,9 @@ def main():
         actual = {p.relative_to(staged).as_posix(): fingerprint(p.read_bytes())
                   for p in staged.rglob("*") if p.is_file()}
         if actual != {**files, **race_fingerprints}:
-            raise ValueError("Staged output changes files outside Amazing Race")
+            raise ValueError("Staged output changes files outside Great Race")
         shutil.move(str(staged), str(output))
-    print(f"Preserved {len(files)} published files byte-for-byte; added {len(race_files)} Amazing Race files")
+    print(f"Preserved {len(files)} published files byte-for-byte; added {len(race_files)} Great Race files")
 
 
 if __name__ == "__main__":
